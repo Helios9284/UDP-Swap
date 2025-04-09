@@ -1,0 +1,18 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-6" y="-6.00012" width="60" height="60"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(5px);clip-path:url(#bgblur_0_2_1845_clip_path);height:100%;width:100%"></div></foreignObject><g data-figma-bg-blur-radius="10">
+<circle cx="20" cy="20" r="20" transform="matrix(-1 0 0 1 44 3.99988)" fill="url(#paint0_linear_2_1845)" fill-opacity="0.28"/>
+<circle cx="20" cy="20" r="20" transform="matrix(-1 0 0 1 44 3.99988)" fill="#04372E"/>
+</g>
+<foreignObject x="-10" y="-10.0001" width="68" height="68"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(5px);clip-path:url(#bgblur_1_2_1845_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="10" cx="24" cy="24" r="22" transform="matrix(-1 0 0 1 48 -0.00012207)" stroke="#74E438" stroke-width="4"/>
+<path d="M19 34.9999L30 23.9999L19 12.9999" stroke="#55F263" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<clipPath id="bgblur_0_2_1845_clip_path" transform="translate(6 6.00012)"><circle cx="20" cy="20" r="20" transform="matrix(-1 0 0 1 44 3.99988)"/>
+</clipPath><clipPath id="bgblur_1_2_1845_clip_path" transform="translate(10 10.0001)"><circle cx="24" cy="24" r="22" transform="matrix(-1 0 0 1 48 -0.00012207)"/>
+</clipPath><linearGradient id="paint0_linear_2_1845" x1="20" y1="93.5" x2="77.6187" y2="39.6422" gradientUnits="userSpaceOnUse">
+<stop offset="0.210566" stop-color="#45A71C"/>
+<stop offset="0.585989" stop-color="#8FD11A"/>
+<stop offset="0.813853" stop-color="#4F782C"/>
+<stop offset="0.970088" stop-color="#1B3802"/>
+</linearGradient>
+</defs>
+</svg>

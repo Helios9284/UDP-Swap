@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#0a0b1e] text-white min-h-screen flex flex-col`}>
+      <body className={`${inter.className} !bg-gradient-to-br from-[#0a0b1e] to-[#1a2e1a] text-white min-h-screen flex flex-col`}>
         <Header />
         <main className="flex-grow">
           {children}

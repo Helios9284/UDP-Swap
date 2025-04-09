@@ -16,6 +16,17 @@ export default function Swap() {
   const [selectedToken1, setSelectedToken1] = useState({ symbol: 'ETH', balance: '2.8989', balanceUSD: '6726.2307' });
   const [selectedToken2, setSelectedToken2] = useState({ symbol: 'EOS', balance: '400.8989', balanceUSD: '284.6382' });
 
+  const [activeSubTab, setActiveSubTab] = useState('spot');
+  const [orderType, setOrderType] = useState('limit');
+  const [isBuy, setIsBuy] = useState(true);
+  const [price, setPrice] = useState('60423.71');
+  const [quantity, setQuantity] = useState('0.5');
+  const [sliderValue, setSliderValue] = useState(25);
+
+  const calculateTotal = () => {
+    return (parseFloat(price) * parseFloat(quantity)).toFixed(2);
+  };
+
   const tabs = [
     { id: 'DEX', label: 'DEX' },
     { id: 'CEX', label: 'CEX' },
@@ -27,74 +38,93 @@ export default function Swap() {
     switch (activeTab) {
       case 'DEX':
         return (
-          <div className="flex-1 p-8">
-            <h1 className="text-4xl font-bold font-cleanow text-[#39FF14] text-center mb-12">SWAP ANYTIME, ANYWHERE</h1>
-            <div className="max-w-lg mx-auto bg-[#1a1b2e]/50 rounded-2xl p-6 border border-[#39FF14]/20">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-semibold text-white">Swap</h2>
-                <button className="text-[#39FF14]">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                  </svg>
-                </button>
-              </div>
-
-              <div className="space-y-4">
-                <div className="bg-[#0a0b1e] p-4 rounded-xl">
-                  <div className="flex justify-between text-sm text-gray-400 mb-2">
-                    <span>You Pay</span>
-                    <span>Balance: {selectedToken1.balance} {selectedToken1.symbol}</span>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <input
-                      type="number"
-                      placeholder="0.0"
-                      className="bg-transparent text-xl w-full focus:outline-none"
+          <div className="flex-1 p-8 relative">
+            <Image
+              src='/swap/dex-bg1.svg'
+              alt='Ribbon'
+              width={606}
+              height={467}
+              className='absolute right-0'
+            />
+            <Image
+              src='/swap/dex-bg2.svg'
+              alt='Ribbon'
+              width={300}
+              height={150}
+              className='absolute top-[-200px] left-[-192px]'
+            />
+            <h1 className="text-5xl font-bold font-cleanow text-[#00D49B] text-center mb-12 text-shadow-[-3px_3px_#054642]">SWAP ANYTIME, ANYWHERE</h1>
+            <div className='max-w-lg mx-auto bg-[#111B18] p-[10px] rounded-2xl'>
+              <div className="bg-[#1a1b2e]/50 rounded-2xl p-6 border border-[3px] border-[#B8F736]">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-xl font-semibold text-white">Swap</h2>
+                  <button className="text-[#39FF14]">
+                    <Image
+                      src="/swap/settings.svg"
+                      alt="settings"
+                      width={18}
+                      height={18}
+                      className='cursor-pointer'
                     />
-                    <button className="bg-[#1a1b2e] hover:bg-[#2a2b3e] text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
-                      <span>{selectedToken1.symbol}</span>
-                      <span>↓</span>
-                    </button>
-                  </div>
-                  <div className="text-right text-sm text-gray-400 mt-2">
-                    ≈${selectedToken1.balanceUSD}
-                  </div>
-                </div>
-
-                <div className="flex justify-center">
-                  <button className="bg-[#1a1b2e] p-2 rounded-full hover:bg-[#2a2b3e]">
-                    ↓
                   </button>
                 </div>
 
-                <div className="bg-[#0a0b1e] p-4 rounded-xl">
-                  <div className="flex justify-between text-sm text-gray-400 mb-2">
-                    <span>You Receive</span>
-                    <span>Balance: {selectedToken2.balance} {selectedToken2.symbol}</span>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <input
-                      type="number"
-                      placeholder="0.0"
-                      className="bg-transparent text-xl w-full focus:outline-none"
-                    />
-                    <button className="bg-[#1a1b2e] hover:bg-[#2a2b3e] text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
-                      <span>{selectedToken2.symbol}</span>
-                      <span>↓</span>
-                    </button>
-                  </div>
-                  <div className="text-right text-sm text-gray-400 mt-2">
-                    ≈${selectedToken2.balanceUSD}
-                  </div>
-                </div>
+                <div className="space-y-2">
+                  <div className="bg-[#0a0b1e] p-4 rounded-xl relative">
+                    <div className="flex justify-between text-sm text-gray-400 mb-2">
+                      <button className="bg-[#1a1b2e] hover:bg-[#2a2b3e] text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
+                        <span>{selectedToken1.symbol}</span>
+                        <span>↓</span>
+                      </button>
+                      <input
+                        type="number"
+                        placeholder="0.0"
+                        className="bg-transparent text-xl w-full focus:outline-none text-right"
+                      />
 
-                <div className="text-sm text-gray-400 text-center">
-                  1 {selectedToken1.symbol} = {(Number(selectedToken2.balanceUSD) / Number(selectedToken1.balanceUSD)).toFixed(7)} {selectedToken2.symbol}
-                </div>
+                    </div>
+                    <div className="flex items-center justify-between gap-4 text-gray-400">
+                      <span>Balance: {selectedToken1.balance} {selectedToken1.symbol}</span>
+                      ≈${selectedToken1.balanceUSD}
+                    </div>
+                    <div className="flex justify-center absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+                      <Image
+                        src="/swap/exchange.svg"
+                        alt="settings"
+                        width={56}
+                        height={56}
+                        className='cursor-pointer'
+                      />
+                    </div>
+                  </div>
 
-                <button className="w-full bg-[#39FF14] text-black py-4 rounded-xl font-semibold font-cleanow hover:bg-opacity-90 transition-all">
-                  SWAP
-                </button>
+                  <div className="bg-[#0a0b1e] p-4 rounded-xl">
+                    <div className="flex justify-between text-sm text-gray-400 mb-2">
+                      <button className="bg-[#1a1b2e] hover:bg-[#2a2b3e] text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
+                        <span>{selectedToken2.symbol}</span>
+                        <span>↓</span>
+                      </button>
+                      <input
+                        type="number"
+                        placeholder="0.0"
+                        className="bg-transparent text-xl w-full focus:outline-none text-right"
+                      />
+
+                    </div>
+                    <div className="flex items-center justify-between gap-4 text-gray-400">
+                      <span>Balance: {selectedToken2.balance} {selectedToken2.symbol}</span>
+                      ≈${selectedToken2.balanceUSD}
+                    </div>
+                  </div>
+
+                  <div className="text-sm text-gray-400 text-right">
+                    1 {selectedToken1.symbol} = {(Number(selectedToken2.balanceUSD) / Number(selectedToken1.balanceUSD)).toFixed(7)} {selectedToken2.symbol}
+                  </div>
+
+                  <button className="w-full bg-[#39FF14] text-black py-4 rounded-xl font-semibold font-cleanow hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736] cursor-pointer">
+                    SWAP
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -102,43 +132,213 @@ export default function Swap() {
 
       case 'Chart':
         return (
-          <div className="flex-1 p-8">
-            <div className="bg-[#1a1b2e]/50 rounded-2xl p-6 border border-[#39FF14]/20">
-              <div className="flex justify-between items-center mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-2">
-                    <span className="text-yellow-500">⭐</span>
-                    <Image src="/partners/bitcoin.svg" alt="BTC" width={24} height={24} />
-                    <span className="font-semibold">BTC/USDT</span>
-                    <span className="text-gray-400">Bitcoin</span>
-                  </div>
-                  <div className="text-[#39FF14]">
-                    60,423.71
-                    <span className="text-sm ml-2">+3.12%</span>
+          <div className='relative w-full flex justify-center'>
+            <Image
+              src='/swap/chart-bg1.svg'
+              alt='Ribbon'
+              width={291}
+              height={310}
+              className='absolute left-0 bottom-0'
+            />
+            <Image
+              src='/swap/chart-bg2.svg'
+              alt='Ribbon'
+              width={291}
+              height={310}
+              className='absolute right-0 bottom-0'
+            />
+            <Image
+              src='/swap/chart-bg3.svg'
+              alt='Ribbon'
+              width={291}
+              height={310}
+              className='absolute right-0 top-0'
+            />
+            <div className="flex-1 p-8 max-w-6xl mx-auto relative">
+              <div className="rounded-2xl p-6">
+                <div className="flex justify-between items-center mb-6 bg-[#111B18] p-4 rounded-xl">
+                  <div className="flex items-center gap-8 text-white">
+                    <div className="flex items-center gap-2">
+                      <span className="text-yellow-500">⭐</span>
+                      <Image src="/partners/bitcoin.svg" alt="BTC" width={24} height={24} />
+                      <div>
+                        <p className="font-semibold">BTC/USDT</p>
+                        <p className="text-gray-400">Bitcoin</p>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-[#39FF14]">60,423.71</p>
+                      <span className="text-sm">≈€ 54,731.13</span>
+                    </div>
+                    <div>
+                      <p className="text-[#39FF14]">24h Change</p>
+                      <span className="text-sm">+3.12%</span>
+                    </div>
+                    <div>
+                      <p className="text-[#39FF14]">24h High</p>
+                      <span className="text-sm">61,234.12</span>
+                    </div>
+                    <div>
+                      <p className="text-[#39FF14]">24h Low</p>
+                      <span className="text-sm">59,344.32</span>
+                    </div>
+                    <div>
+                      <p className="text-[#39FF14]">24h Volume (USDT)</p>
+                      <span className="text-sm">259.91M</span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <button className="px-4 py-2 rounded-lg bg-[#2a2b3e]">TradingView</button>
-                  <button className="px-4 py-2 rounded-lg bg-[#2a2b3e]">Depth</button>
-                </div>
-              </div>
-              <div className="aspect-[16/9] bg-[#0a0b1e] rounded-xl flex items-center justify-center">
-                <p className="text-gray-400">Trading chart will be displayed here</p>
-              </div>
-            </div>
 
-            {/* Popular Pairs */}
-            <div className="mx-auto mt-8 text-white">
-              <div className="flex items-center gap-4 bg-[#1a1b2e]/50 rounded-xl p-4 overflow-x-auto">
-                <span className="text-red-500">🔥 Popular</span>
-                {popularPairs.map((pair, index) => (
-                  <div key={index} className="flex items-center gap-2 whitespace-nowrap">
-                    <span>{pair.pair}</span>
-                    <span className={pair.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}>
-                      {pair.change}
-                    </span>
+                <div className='flex gap-4'>
+                  <div className="w-full bg-[#111B18] rounded-xl flex items-center justify-center relative">
+                    <Image
+                      src="/swap/trading_chart.svg"
+                      alt="Arrow Left"
+                      fill={true}
+                      className='cursor-pointer'
+                    />
                   </div>
-                ))}
+                  <div className="max-w-md mx-auto bg-[#111B18] rounded-2xl p-6">
+                    {/* Trading Type Tabs */}
+                    <div className="flex gap-4 mb-6">
+                      <button
+                        className={`px-4 py-2 rounded-lg cursor-pointer ${activeSubTab === 'spot' ? 'bg-[#2a2b3e] text-white' : 'text-gray-400'}`}
+                        onClick={() => setActiveSubTab('spot')}
+                      >
+                        Spot
+                      </button>
+                      <button
+                        className={`px-4 py-2 rounded-lg cursor-pointer ${activeSubTab === 'margin' ? 'bg-[#2a2b3e] text-white' : 'text-gray-400'}`}
+                        onClick={() => setActiveSubTab('margin')}
+                      >
+                        Margin 10X
+                      </button>
+                    </div>
+
+                    {/* Buy/Sell Buttons */}
+                    <div className="flex gap-2 mb-6">
+                      <button
+                        className={`flex-1 py-3 rounded-lg cursor-pointer ${isBuy ? 'bg-[#39FF14] text-black font-semibold' : 'bg-transparent text-gray-400'}`}
+                        onClick={() => setIsBuy(true)}
+                      >
+                        Buy
+                      </button>
+                      <button
+                        className={`flex-1 py-3 rounded-lg cursor-pointer ${!isBuy ? 'bg-[#ff3939] text-white font-semibold' : 'bg-transparent text-gray-400'}`}
+                        onClick={() => setIsBuy(false)}
+                      >
+                        Sell
+                      </button>
+                    </div>
+
+                    {/* Order Type Selection */}
+                    <div className="flex gap-4 mb-6 text-sm">
+                      <button
+                        className={`cursor-pointer ${orderType === 'limit' ? 'text-white' : 'text-gray-400'}`}
+                        onClick={() => setOrderType('limit')}
+                      >
+                        Limit
+                      </button>
+                      <button
+                        className={`cursor-pointer ${orderType === 'market' ? 'text-white' : 'text-gray-400'}`}
+                        onClick={() => setOrderType('market')}
+                      >
+                        Market
+                      </button>
+                      <button
+                        className={`cursor-pointer ${orderType === 'advanced' ? 'text-white' : 'text-gray-400'}`}
+                        onClick={() => setOrderType('advanced')}
+                      >
+                        Advanced Limit
+                      </button>
+                    </div>
+
+                    {/* Price Input */}
+                    <div className="mb-4">
+                      <div className="flex justify-between items-center bg-[#2a2b3e] rounded-lg p-3">
+                        <input
+                          type="text"
+                          value={price}
+                          onChange={(e) => setPrice(e.target.value)}
+                          className="bg-transparent w-full outline-none text-gray-400"
+                          placeholder="Price"
+                        />
+                        <span className="text-gray-400">USDT</span>
+                      </div>
+                    </div>
+
+                    {/* Quantity Input */}
+                    <div className="mb-4">
+                      <div className="flex justify-between items-center bg-[#2a2b3e] rounded-lg p-3">
+                        <input
+                          type="text"
+                          value={quantity}
+                          onChange={(e) => setQuantity(e.target.value)}
+                          className="bg-transparent w-full outline-none text-gray-400"
+                          placeholder="Quantity"
+                        />
+                        <span className="text-gray-400">BTC</span>
+                      </div>
+                    </div>
+
+                    {/* Percentage Slider */}
+                    <div className="mb-6">
+                      <div className="flex justify-between text-xs text-gray-400 mb-2">
+                        <span>0%</span>
+                        <span>25%</span>
+                        <span>50%</span>
+                        <span>75%</span>
+                        <span>100%</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        step="25"
+                        value={sliderValue}
+                        onChange={(e) => setSliderValue(parseInt(e.target.value))}
+                        className="w-full h-1 bg-[#2a2b3e] rounded-lg appearance-none cursor-pointer"
+                      />
+                    </div>
+
+                    {/* Total */}
+                    <div className="flex justify-between items-center mb-6">
+                      <span className="text-gray-400">Total</span>
+                      <div className="text-right">
+                        <div className="font-medium text-gray-400">{calculateTotal()} USDT</div>
+                      </div>
+                    </div>
+
+                    {/* TP/SL Toggle */}
+                    <div className="flex justify-between items-center mb-6">
+                      <span className="text-gray-400">TP/SL</span>
+                      <div className="text-gray-400">Available: 0 USDT</div>
+                    </div>
+
+                    {/* Action Button */}
+                    <button
+                      className={`w-full py-4 rounded-lg font-semibold border-[4px] border-[#B8F736] ${isBuy ? 'bg-[#3EDD38] text-black' : 'bg-[#ff3939] text-white'
+                        }`}
+                    >
+                      {isBuy ? 'BUY' : 'SELL'} BTC
+                    </button>
+                  </div>
+                </div>
+
+                {/* Popular Pairs */}
+                <div className="mx-auto mt-8 text-white">
+                  <div className="flex items-center gap-8 bg-[#111B18] rounded-xl p-4 overflow-x-auto">
+                    <span className="text-red-500">🔥 Popular</span>
+                    {popularPairs.map((pair, index) => (
+                      <div key={index} className="flex items-center gap-2 whitespace-nowrap">
+                        <span>{pair.pair}</span>
+                        <span className={pair.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}>
+                          {pair.change}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -146,7 +346,7 @@ export default function Swap() {
 
       default:
         return (
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex-1 flex items-center justify-center min-h-[500px]">
             <div className="text-center">
               <h2 className="text-4xl font-bold text-[#39FF14] mb-8">COMING SOON</h2>
               <Image src="/mascot-surprised.svg" alt="Coming Soon" width={200} height={200} />
@@ -157,16 +357,16 @@ export default function Swap() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-[#0a0b1e] to-[#1a2e1a]">
+    <div className="flex bg-gradient-to-br from-[#0a0b1e] to-[#1a2e1a]">
       {/* Left Sidebar */}
-      <div className="w-48 bg-[#0a0b1e] border-r border-[#39FF14]/10">
+      <div className="w-48 bg-transparent flex flex-col justify-center z-[100] h-screen absolute top-0">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`w-full text-left px-6 py-4 font-semibold ${activeTab === tab.id
-                ? 'bg-[#1a1b2e] text-[#39FF14] border-l-4 border-[#39FF14]'
-                : 'text-gray-400 hover:bg-[#1a1b2e]/50'
+            className={`w-full text-center px-6 py-4 font-semibold cursor-pointer ${activeTab === tab.id
+              ? 'bg-[#1a1b2e] text-[#39FF14] border-r-4 border-[#39FF14]'
+              : 'text-gray-400 hover:bg-[#1a1b2e]/50'
               }`}
           >
             {tab.label}

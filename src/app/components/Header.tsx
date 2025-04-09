@@ -24,8 +24,8 @@ const Header = () => {
             width={58}
             height={43}
           />
-          <span className="text-purple-400 font-semibold font-cleanow text-xl">
-            Universal Liquidity<br />Protocol
+          <span className="text-[#B999FE] font-semibold font-cleanow text-xl text-shadow-[-3px_3px_#054642]">
+            Universal Liquidity<br /> Protocol
           </span>
         </div>
 
