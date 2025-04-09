@@ -160,7 +160,7 @@ export default function Home() {
       <section className="container mx-auto px-6">
         <div className='flex justify-between mb-[50px] md:mb-[100px]'>
           <h2 className="text-3xl md:text-5xl font-bold font-cleanow text-[#6CEA31] mb-12 text-center text-shadow-[-3px_3px_#054642]">OUR ROADMAP</h2>
-          <div className="hidden md:block flex gap-12">
+          <div className="hidden md:flex gap-12">
             <Image
               src="/roadmap/arrow_left.svg"
               alt="Arrow Left"
