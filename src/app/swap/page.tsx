@@ -38,24 +38,24 @@ export default function Swap() {
     switch (activeTab) {
       case 'DEX':
         return (
-          <div className="flex-1 p-8 relative">
+          <div className="flex-1 p-2 md:p-8 relative">
             <Image
               src='/swap/dex-bg1.svg'
               alt='Ribbon'
               width={606}
               height={467}
-              className='absolute right-0'
+              className='absolute right-0 hidden md:block'
             />
             <Image
               src='/swap/dex-bg2.svg'
               alt='Ribbon'
               width={300}
               height={150}
-              className='absolute top-[-200px] left-[-192px]'
+              className='absolute top-[-200px] left-[-192px] hidden md:block'
             />
-            <h1 className="text-5xl font-bold font-cleanow text-[#00D49B] text-center mb-12 text-shadow-[-3px_3px_#054642]">SWAP ANYTIME, ANYWHERE</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-cleanow text-[#00D49B] text-center mb-6 md:mb-12 text-shadow-[-3px_3px_#054642]">SWAP ANYTIME, ANYWHERE</h1>
             <div className='max-w-lg mx-auto bg-[#111B18] p-[10px] rounded-2xl'>
-              <div className="bg-[#1a1b2e]/50 rounded-2xl p-6 border border-[3px] border-[#B8F736]">
+              <div className="bg-[#1a1b2e]/50 rounded-2xl p-3 md:p-6 border border-[3px] border-[#B8F736]">
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-xl font-semibold text-white">Swap</h2>
                   <button className="text-[#39FF14]">
@@ -93,7 +93,7 @@ export default function Swap() {
                         alt="settings"
                         width={56}
                         height={56}
-                        className='cursor-pointer'
+                        className='cursor-pointer w-[28px] h-[28px] md:w-[56px] md:h-[56px]'
                       />
                     </div>
                   </div>
@@ -138,26 +138,26 @@ export default function Swap() {
               alt='Ribbon'
               width={291}
               height={310}
-              className='absolute left-0 bottom-0'
+              className='absolute left-0 bottom-0 hidden md:block'
             />
             <Image
               src='/swap/chart-bg2.svg'
               alt='Ribbon'
               width={291}
               height={310}
-              className='absolute right-0 bottom-0'
+              className='absolute right-0 bottom-0 hidden md:block'
             />
             <Image
               src='/swap/chart-bg3.svg'
               alt='Ribbon'
               width={291}
               height={310}
-              className='absolute right-0 top-0'
+              className='absolute right-0 top-0 hidden md:block'
             />
-            <div className="flex-1 p-8 max-w-6xl mx-auto relative">
-              <div className="rounded-2xl p-6">
-                <div className="flex justify-between items-center mb-6 bg-[#111B18] p-4 rounded-xl">
-                  <div className="flex items-center gap-8 text-white">
+            <div className="flex-1 p-2 md:p-8 max-w-6xl mx-auto relative">
+              <div className="rounded-2xl p-2 md:p-6">
+                <div className="mb-6 bg-[#111B18] p-4 rounded-xl">
+                  <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-white">
                     <div className="flex items-center gap-2">
                       <span className="text-yellow-500">⭐</span>
                       <Image src="/partners/bitcoin.svg" alt="BTC" width={24} height={24} />
@@ -166,31 +166,36 @@ export default function Swap() {
                         <p className="text-gray-400">Bitcoin</p>
                       </div>
                     </div>
-                    <div>
-                      <p className="text-[#39FF14]">60,423.71</p>
-                      <span className="text-sm">≈€ 54,731.13</span>
+                    <div className='flex gap-8'>
+                      <div>
+                        <p className="text-[#39FF14]">60,423.71</p>
+                        <span className="text-sm">≈€ 54,731.13</span>
+                      </div>
+                      <div>
+                        <p className="text-[#39FF14]">24h Change</p>
+                        <span className="text-sm">+3.12%</span>
+                      </div>
+                      <div>
+                        <p className="text-[#39FF14]">24h High</p>
+                        <span className="text-sm">61,234.12</span>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[#39FF14]">24h Change</p>
-                      <span className="text-sm">+3.12%</span>
-                    </div>
-                    <div>
-                      <p className="text-[#39FF14]">24h High</p>
-                      <span className="text-sm">61,234.12</span>
-                    </div>
-                    <div>
-                      <p className="text-[#39FF14]">24h Low</p>
-                      <span className="text-sm">59,344.32</span>
-                    </div>
-                    <div>
+                    <div className='flex gap-8'>
+                      <div>
+                        <p className="text-[#39FF14]">24h Low</p>
+                        <span className="text-sm">59,344.32</span>
+                      </div>
+                      <div>
                       <p className="text-[#39FF14]">24h Volume (USDT)</p>
                       <span className="text-sm">259.91M</span>
                     </div>
+                    </div>
+                    
                   </div>
                 </div>
 
-                <div className='flex gap-4'>
-                  <div className="w-full bg-[#111B18] rounded-xl flex items-center justify-center relative">
+                <div className='flex flex-col md:flex-row gap-4'>
+                  <div className="w-full bg-[#111B18] rounded-xl flex items-center justify-center relative aspect-16/9">
                     <Image
                       src="/swap/trading_chart.svg"
                       alt="Arrow Left"
@@ -327,7 +332,7 @@ export default function Swap() {
 
                 {/* Popular Pairs */}
                 <div className="mx-auto mt-8 text-white">
-                  <div className="flex items-center gap-8 bg-[#111B18] rounded-xl p-4 overflow-x-auto">
+                  <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 bg-[#111B18] rounded-xl p-2 md:p-4 max-h-[120px] overflow-y-scroll md:max-h-inherit md:overflow-y-auto">
                     <span className="text-red-500">🔥 Popular</span>
                     {popularPairs.map((pair, index) => (
                       <div key={index} className="flex items-center gap-2 whitespace-nowrap">
@@ -347,7 +352,7 @@ export default function Swap() {
       default:
         return (
           <div className="flex-1 flex items-center justify-center min-h-[500px]">
-            <div className="text-center">
+            <div className="flex flex-col items-center justify-center">
               <h2 className="text-4xl font-bold text-[#39FF14] mb-8">COMING SOON</h2>
               <Image src="/mascot-surprised.svg" alt="Coming Soon" width={200} height={200} />
             </div>
@@ -357,9 +362,25 @@ export default function Swap() {
   };
 
   return (
-    <div className="flex bg-gradient-to-br from-[#0a0b1e] to-[#1a2e1a]">
-      {/* Left Sidebar */}
-      <div className="w-48 bg-transparent flex flex-col justify-center z-[100] h-screen absolute top-0">
+    <div className="flex flex-col md:flex-row bg-gradient-to-br from-[#0a0b1e] to-[#1a2e1a]">
+      {/* Mobile Tab Navigation */}
+      <div className="md:hidden flex overflow-x-auto bg-[#1a1b2e] p-2">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`px-4 py-2 rounded-lg font-semibold whitespace-nowrap ${activeTab === tab.id
+              ? 'bg-[#2a2b3e] text-[#39FF14]'
+              : 'text-gray-400'
+              }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Desktop Sidebar */}
+      <div className="hidden md:flex w-48 bg-transparent flex-col justify-center z-[100] h-screen absolute top-0">
         {tabs.map((tab) => (
           <button
             key={tab.id}

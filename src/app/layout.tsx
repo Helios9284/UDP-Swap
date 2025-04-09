@@ -4,6 +4,9 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import '@rainbow-me/rainbowkit/styles.css';
+import { Providers } from "./providers";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,11 +22,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} !bg-gradient-to-br from-[#0a0b1e] to-[#1a2e1a] text-white min-h-screen flex flex-col`}>
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

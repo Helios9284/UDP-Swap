@@ -3,9 +3,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { ConnectionButton } from './ConnectionButton';
 
 const Header = () => {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -15,7 +18,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full bg-[#0a0b1e] py-4 px-6">
+    <header className="w-full bg-[#0a0b1e] py-4 px-4 md:px-6">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Image
@@ -23,13 +26,29 @@ const Header = () => {
             alt="Universal Liquidity Protocol"
             width={58}
             height={43}
+            className="w-10 h-auto md:w-[58px]"
           />
-          <span className="text-[#B999FE] font-semibold font-cleanow text-xl text-shadow-[-3px_3px_#054642]">
+          <span className="text-[#B999FE] font-semibold font-cleanow text-sm md:text-xl text-shadow-[-3px_3px_#054642]">
             Universal Liquidity<br /> Protocol
           </span>
         </div>
 
-        <nav className="flex items-center space-x-8">
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+            {mobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -42,10 +61,30 @@ const Header = () => {
           ))}
         </nav>
 
-        <button className="bg-[#39FF14] text-black px-6 py-2 rounded-full font-cleanow hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736] cursor-pointer">
-          CONNECT WALLET
-        </button>
+        <div className='hidden md:block'>
+          <ConnectionButton />
+        </div>
       </div>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-[#0a0b1e] py-4 px-4">
+          <nav className="flex flex-col space-y-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`text-gray-300 hover:text-white transition-colors ${pathname === item.path ? 'text-white border-l-2 border-white pl-2' : 'pl-2'
+                  }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <ConnectionButton />
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
