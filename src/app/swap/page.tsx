@@ -51,9 +51,9 @@ export default function Swap() {
               alt='Ribbon'
               width={300}
               height={150}
-              className='absolute top-[-200px] left-[-192px] hidden md:block'
+              className='absolute top-[-200px] left-0 hidden md:block'
             />
-            <h1 className="text-3xl md:text-5xl font-bold font-cleanow text-[#00D49B] text-center mb-6 md:mb-12 text-shadow-[-3px_3px_#054642]">SWAP ANYTIME, ANYWHERE</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-cleanow text-[#00D49B] text-center my-6 md:my-12 text-shadow-[-3px_3px_#054642]">SWAP ANYTIME, ANYWHERE</h1>
             <div className='max-w-lg mx-auto bg-[#111B18] p-[10px] rounded-2xl'>
               <div className="bg-[#1a1b2e]/50 rounded-2xl p-3 md:p-6 border border-[3px] border-[#B8F736]">
                 <div className="flex justify-between items-center mb-6">
@@ -136,23 +136,23 @@ export default function Swap() {
             <Image
               src='/swap/chart-bg1.svg'
               alt='Ribbon'
-              width={291}
-              height={310}
-              className='absolute left-0 bottom-0 hidden md:block'
+              width={580}
+              height={620}
+              className='absolute left-0 bottom-[-100px] hidden md:block'
             />
             <Image
               src='/swap/chart-bg2.svg'
               alt='Ribbon'
-              width={291}
-              height={310}
-              className='absolute right-0 bottom-0 hidden md:block'
+              width={580}
+              height={620}
+              className='absolute right-0 bottom-[-300px] hidden md:block'
             />
             <Image
               src='/swap/chart-bg3.svg'
               alt='Ribbon'
-              width={291}
-              height={310}
-              className='absolute right-0 top-0 hidden md:block'
+              width={580}
+              height={620}
+              className='absolute right-0 top-[-100px] hidden md:block'
             />
             <div className="flex-1 p-2 md:p-8 max-w-6xl mx-auto relative">
               <div className="rounded-2xl p-2 md:p-6">
@@ -356,16 +356,16 @@ export default function Swap() {
               <Image
                 src='/swap/soon-bg1.svg'
                 alt='Ribbon'
-                width={291}
-                height={310}
-                className='absolute right-0 bottom-[-100px] hidden md:block'
+                width={580}
+                height={620}
+                className='absolute right-0 bottom-[-200px] hidden md:block'
               />
               <Image
                 src='/swap/soon-bg2.svg'
                 alt='Ribbon'
-                width={291}
-                height={310}
-                className='absolute left-[15px] top-[-50px] hidden md:block'
+                width={580}
+                height={620}
+                className='absolute left-[-50px] top-[-50px] hidden md:block'
               />
               <h2 className="text-3xl md:text-6xl font-cleanow font-bold text-[#39FF14]">COMING SOON</h2>
             </div>
@@ -375,7 +375,7 @@ export default function Swap() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#0a0b1e] to-[#1a2e1a]">
+    <div className="">
       <div className="flex flex-col md:flex-row md:bg-[url('/swap/wave.svg')] bg-no-repeat bg-contain">
         {/* Mobile Tab Navigation */}
         <div className="md:hidden flex overflow-x-auto bg-[#1a1b2e] p-2">
