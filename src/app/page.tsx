@@ -95,10 +95,17 @@ export default function Home() {
           height={478}
           className='absolute right-0 top-0 hidden md:block'
         />
+        <Image
+          src="/wave.svg"
+          alt="Wave"
+          width={2257}
+          height={1257}
+          className='absolute left-0 top-0 -translate-y-1/2 hidden md:block'
+        />
       </section>
 
       {/* Introduction Section */}
-      <section className="container mx-auto px-6">
+      <section className="container mx-auto px-6 bg-[url('/protocol/bg.svg')]">
         <div className="flex flex-col md:flex-row items-center gap-20">
           <div className="flex flex-col items-center md:min-w-[380px] px-8 md:px-16 pt-8 md:pt-16 pb-16 md:pb-32 rounded-3xl border-[3px] border-[#8FD11A] text-white text-center">
             <p className='font-cleanow text-2xl'>Protocol #1</p>
@@ -246,19 +253,21 @@ export default function Home() {
               START USING
             </button>
           </div>
-          <div className="md:bg-[url('/future/bg1.svg')] bg-no-repeat bg-cover grid grid-cols-1 md:grid-cols-3 gap-8 py-6 md:py-12">
-            {features.map((feature, index) => (
-              <div key={index} className={`p-6 flex flex-col items-center gap-4 ${index == 0 ? '' : 'border-t border-t-[#145F80] md:border-t-none md:border-l md:border-l-[#145F80]'}`}>
-                <Image
-                  src={feature.icon}
-                  alt={feature.title}
-                  width={80}
-                  height={87}
-                />
-                <h3 className="text-2xl font-semibold font-cleanow text-[#8FD11A]">{feature.title}</h3>
-                <p className="text-gray-300 text-center">{feature.description}</p>
-              </div>
-            ))}
+          <div className="max-w-5xl mx-auto md:bg-[url('/future/bg1.svg')] bg-no-repeat bg-size-[100%_100%] md:p-6">
+            <div className="md:bg-[url('/future/bg2.svg')] bg-no-repeat bg-size-[100%_100%] grid grid-cols-1 md:grid-cols-3 gap-8 py-6 md:py-12">
+              {features.map((feature, index) => (
+                <div key={index} className={`p-2 flex flex-col items-center gap-4 ${index == 0 ? '' : 'border-t border-t-[#145F80] md:border-t-[0px] md:border-l md:border-l-[#145F80]'}`}>
+                  <Image
+                    src={feature.icon}
+                    alt={feature.title}
+                    width={80}
+                    height={87}
+                  />
+                  <h3 className="text-2xl font-semibold font-cleanow text-[#8FD11A]">{feature.title}</h3>
+                  <p className="text-gray-300 text-center">{feature.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </div>

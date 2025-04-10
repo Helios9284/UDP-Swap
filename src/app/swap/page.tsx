@@ -186,11 +186,11 @@ export default function Swap() {
                         <span className="text-sm">59,344.32</span>
                       </div>
                       <div>
-                      <p className="text-[#39FF14]">24h Volume (USDT)</p>
-                      <span className="text-sm">259.91M</span>
+                        <p className="text-[#39FF14]">24h Volume (USDT)</p>
+                        <span className="text-sm">259.91M</span>
+                      </div>
                     </div>
-                    </div>
-                    
+
                   </div>
                 </div>
 
@@ -351,10 +351,23 @@ export default function Swap() {
 
       default:
         return (
-          <div className="flex-1 flex items-center justify-center min-h-[500px]">
-            <div className="flex flex-col items-center justify-center">
-              <h2 className="text-4xl font-bold text-[#39FF14] mb-8">COMING SOON</h2>
-              <Image src="/mascot-surprised.svg" alt="Coming Soon" width={200} height={200} />
+          <div className="flex-1 flex items-center justify-center md:min-h-[500px] py-10">
+            <div className="flex flex-col items-center justify-center bg-[url('/swap/comingsoon.svg')] bg-cover min-w-[300px] min-h-[200px] md:min-w-[974px] md:min-h-[771px] relative">
+              <Image
+                src='/swap/soon-bg1.svg'
+                alt='Ribbon'
+                width={291}
+                height={310}
+                className='absolute right-0 bottom-[-100px] hidden md:block'
+              />
+              <Image
+                src='/swap/soon-bg2.svg'
+                alt='Ribbon'
+                width={291}
+                height={310}
+                className='absolute left-[15px] top-[-50px] hidden md:block'
+              />
+              <h2 className="text-3xl md:text-6xl font-cleanow font-bold text-[#39FF14]">COMING SOON</h2>
             </div>
           </div>
         );
@@ -362,41 +375,43 @@ export default function Swap() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row bg-gradient-to-br from-[#0a0b1e] to-[#1a2e1a]">
-      {/* Mobile Tab Navigation */}
-      <div className="md:hidden flex overflow-x-auto bg-[#1a1b2e] p-2">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`px-4 py-2 rounded-lg font-semibold whitespace-nowrap ${activeTab === tab.id
-              ? 'bg-[#2a2b3e] text-[#39FF14]'
-              : 'text-gray-400'
-              }`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+    <div className="bg-gradient-to-br from-[#0a0b1e] to-[#1a2e1a]">
+      <div className="flex flex-col md:flex-row md:bg-[url('/swap/wave.svg')] bg-no-repeat bg-contain">
+        {/* Mobile Tab Navigation */}
+        <div className="md:hidden flex overflow-x-auto bg-[#1a1b2e] p-2">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-4 py-2 rounded-lg font-semibold whitespace-nowrap ${activeTab === tab.id
+                ? 'bg-[#2a2b3e] text-[#39FF14]'
+                : 'text-gray-400'
+                }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
 
-      {/* Desktop Sidebar */}
-      <div className="hidden md:flex w-48 bg-transparent flex-col justify-center z-[100] h-screen absolute top-0">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`w-full text-center px-6 py-4 font-semibold cursor-pointer ${activeTab === tab.id
-              ? 'bg-[#1a1b2e] text-[#39FF14] border-r-4 border-[#39FF14]'
-              : 'text-gray-400 hover:bg-[#1a1b2e]/50'
-              }`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+        {/* Desktop Sidebar */}
+        <div className="hidden md:flex w-48 bg-transparent flex-col justify-center z-[100] h-screen absolute top-0">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`w-full text-center px-6 py-4 font-semibold cursor-pointer ${activeTab === tab.id
+                ? 'bg-[#1a1b2e] text-[#39FF14] border-r-4 border-[#39FF14]'
+                : 'text-gray-400 hover:bg-[#1a1b2e]/50'
+                }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
 
-      {/* Main Content */}
-      {renderTabContent()}
+        {/* Main Content */}
+        {renderTabContent()}
+      </div>
     </div>
   );
 } 

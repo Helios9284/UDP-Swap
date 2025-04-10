@@ -15,9 +15,9 @@ const Footer = () => {
   return (
     <>
       <div className='px-[2px] pt-[4px] bg-gradient-to-r from-[#5BB31C] via-[#B999FE] to-[#B999FE0A] rounded-t-[100px]'>
-        <footer className="w-full bg-[#0a0b1e] py-6 md:py-8 px-4 md:px-6 rounded-t-[100px]">
+        <footer className="w-full bg-[#0a0b1e] py-4 md:py-8 px-3 md:px-6 rounded-t-[100px]">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center justify-between mb-6 md:mb-8 gap-6 md:gap-0">
+            <div className="flex flex-col md:flex-row items-center justify-between mb-6 md:mb-8 gap-3 md:gap-0">
               <div className="flex items-center gap-2">
                 <Image
                   src="/logo.svg"
@@ -46,7 +46,7 @@ const Footer = () => {
               <ConnectionButton />
             </div>
 
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 pt-4 border-t border-gray-800">
+            <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 pt-4 border-t border-gray-800">
               <span className="text-gray-400">Follow us</span>
               <div className="flex items-center gap-4">
                 <a
