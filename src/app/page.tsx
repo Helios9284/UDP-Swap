@@ -1,10 +1,30 @@
 'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
+import {motion, useAnimation } from "framer-motion";
+import {heroVariants, Introduction, Roadmap, Partner, Community} from "@/app/animation/animation.";
 
 export default function Home() {
+  type Star = {
+    size: number;
+    top: number;
+    left: number;
+    delay: number;
+  };
+  const [stars, setStars] = useState<Star[]>([]); // Type defined here!
+  
+    useEffect(() => {
+      const generatedStars: Star[] = Array.from({ length: 50 }).map(() => ({
+        size: Math.random() * 2 + 2,
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+        delay: Math.random() * 3,
+      }));
+  
+      setStars(generatedStars);
+    }, []);
+
   const roadmapItems = [
     {
       date: '2025 Q4',
@@ -75,53 +95,51 @@ export default function Home() {
         <div className="max-w-[1096px] mx-auto px-6">
           <div className="flex items-center justify-between">
             <div className="max-w-2xl">
-            {/* <Image
-              src="/vector/vector1.svg"
-              alt="vector"
-              width={457}
-              height={457}
-              className='absolute left-0 -top-30 -z-1  hidden md:block'
-            /> */}
-              <h1 className="text-3xl md:text-5xl font-cleanow mb-[30px] text-[#6CEA31] leading-tight text-shadow-[-3px_3px_#054642]">
-                Universal Liquidity Protocol will accelerate your business
-              </h1>
-              <p className="text-sm md:text-xl text-gray-300 mb-10">
-                Start building your smart contract with Universal liquidity protocol
-              </p>
-              <button className="bg-[#39FF14] text-black px-4 py-3 rounded-full font-cleanow text-xl hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736]">
-                CREATE A CONTRACT
-              </button>
+              <motion.div
+                className="herovariants"
+                initial="hidden"
+                animate="visible"
+                custom={0}
+                variants={heroVariants}
+              >
+                <h1 className="text-3xl md:text-5xl font-cleanow mb-[30px] text-[#6CEA31] leading-tight text-shadow-[-3px_3px_#054642]">
+                  Universal Liquidity Protocol will accelerate your business
+                </h1>
+                <p className="text-sm md:text-xl text-gray-300 mb-10">
+                  Start building your smart contract with Universal liquidity protocol
+                </p>
+                <button className="bg-[#39FF14] text-black px-4 py-3 rounded-full font-cleanow text-xl hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736]">
+                  CREATE A CONTRACT
+                </button>
+              </motion.div>
             </div>
-            {Array.from({ length: 50 }).map((_, i) => {
-              const size = Math.random() * 2 + 2; // Star size between 1px - 3px
-              return (
-                <div
-                  key={i}
-                  className="absolute rounded-full bg-white animate-twinkle shadow-[0_0_6px_#ffffff]"
-                  style={{
-                    width: `${size}px`,
-                    height: `${size}px`,
-                    top: `${Math.random() * 100}%`,
-                    left: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 3}s`,
-                  }}
-                />
-              );
-            })}
+            {stars.map((star, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full bg-white animate-twinkle shadow-[0_0_6px_#ffffff]"
+                style={{
+                  width: `${star.size}px`,
+                  height: `${star.size}px`,
+                  top: `${star.top}%`,
+                  left: `${star.left}%`,
+                  animationDelay: `${star.delay}s`,
+                }}
+              />
+            ))}
           </div>
         </div>
         <Image
           src="/mascot.svg"
           alt="ULP Mascot"
-          width={642}
-          height={578}
+          width={742}
+          height={678}
           className='absolute right-0 top-0 hidden md:block'
         />
         <Image  
-          src="/mascot2.png"
+          src="/mascot.png"
           alt="ULP Mascot"
-          width={642}
-          height={578}
+          width={742}
+          height={678}
           className='absolute right-0 top-0 hidden md:block object-contain animate-blink '
         />
         <Image
@@ -134,151 +152,176 @@ export default function Home() {
       </section>
 
       {/* Introduction Section */}
-      <section className="relative">
-        <Image
-          src="/protocol/bg.svg"
-          alt="Wave"
-          width={813}
-          height={645}
-          className='absolute right-0 bottom-0 hidden md:block opacity-26'
-        />
-        <Image
-          src="/backgrounds/Vector 10.svg"
-          alt="Wave"
-          width={813}
-          height={645}
-          className='absolute right-0 top-0 hidden md:block opacity-26'
-        />
-        <div className='max-w-[1096px] mx-auto px-6'>
-          <div className="flex flex-col md:flex-row items-center gap-[75px]">
-            <div className="flex flex-col items-center md:min-w-[380px] px-8 md:px-16 pt-8 md:pt-16 pb-16 md:pb-32 rounded-3xl border-[3px] border-[#8FD11A] text-white text-center">
-              <p className='font-cleanow text-2xl'>Protocol #1</p>
-              <p className='italic'><span className='opacity-40'>from</span> Universal Liquidity Protocol</p>
-`            <Image
-              src="/protocol/Group.png"
-              alt="Protocol Illustration"
-              width={131}
-              height={131}
-              className='mt-6 relative'
-            />
-            <Image
-              src="/protocol/Group2.png"
-              alt="Protocol Illustration"
-              width={185}
-              height={185}
-              className='mt-6 absolute  translate-y-[45px] animate-spin '
-            />
-            
-            </div>
-            <div className="flex-1">
-              <h2 className="text-3xl md:text-[50px] font-bold font-cleanow text-[#00D49B] mb-[30px] md:mb-[60px] text-shadow-[-3px_3px_#054642] relative">
-                INTRODUCING UNIVERSAL LIQUIDITY PROTOCOL
-                <Image
-                  src="/backgrounds/Ellipse 2.svg"
-                  alt="Wave"
-                  width={264}
-                  height={181}
-                  className='absolute left-0 top-0 translate-x-[-100px] translate-y-[-80px] hidden md:block opacity-56'
+      <motion.div
+          className="introduction"
+          initial="hidden"
+          animate="visible"
+          custom={0}
+          variants={Introduction}
+      >
+        <section className="relative">
+          <Image
+            src="/protocol/bg.svg"
+            alt="protocol"
+            width={813}
+            height={645}
+            className='absolute right-0 bottom-0 hidden md:block opacity-26'
+          />
+          <Image
+            src="/backgrounds/Vector 10.svg"
+            alt="Vector"
+            width={813}
+            height={645}
+            className='absolute right-0 top-0 hidden md:block opacity-26'
+          />
+          <div className='max-w-[1096px] mx-auto px-6'>
+            <div className="flex flex-col md:flex-row items-center gap-[75px]">
+              <div className="flex flex-col items-center md:min-w-[380px] px-8 md:px-16 pt-8 md:pt-16 pb-16 md:pb-32 rounded-3xl border-[3px] border-[#8FD11A] text-white text-center">
+                <p className='font-cleanow text-2xl'>Protocol #1</p>
+                <p className='italic'><span className='opacity-40'>from</span> Universal Liquidity Protocol</p>
+             <Image
+                src="/protocol/Group.png"
+                alt="Protocol Illustration"
+                width={131}
+                height={131}
+                className='mt-6 relative'
                 />
-              </h2>
-              <div className="space-y-8">
-                <div>
-                  <div className='mb-4 flex items-center gap-4'>
+                <Image
+                src="/protocol/Group2.png"
+                alt="Protocol Illustration"
+                width={185}
+                height={185}
+                className='mt-6 absolute  translate-y-[45px] animate-spin duration-[3000ms] ease-in-out'
+              />
+              
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-[50px] font-bold font-cleanow text-[#00D49B] mb-[30px] md:mb-[60px] text-shadow-[-3px_3px_#054642] relative">
+                  INTRODUCING UNIVERSAL LIQUIDITY PROTOCOL
+                  <Image
+                    src="/backgrounds/Ellipse 2.svg"
+                    alt="Ellipse"
+                    width={264}
+                    height={181}
+                    className='absolute left-0 top-0 translate-x-[-100px] translate-y-[-80px] hidden md:block opacity-56'
+                  />
+                </h2>
+                <div className="space-y-8">
+                  <div>
+                    <div className='mb-4 flex items-center gap-4'>
+                      <div className='border rounded-full bg-linear-to-r from-[#88CA8B] to-[#45A71C] w-[15px] h-[15px]'></div>
+                      <h3 className="text-base md:text-2xl font-semibold text-white">
+                        Who We Are
+                      </h3>
+                    </div>
+                    <p className="text-xs md:text-base text-gray-300">
+                      Universal Liquidity Protocol is a 100% pre-scratched cryptome. There are 1 Million Minutes, and 60% of them can be yours (60% - ICO). Utility & security token (applies to all transactions and gives a monthly dividend).
+                    </p>
+                  </div>
+                  <div>
+                    <div className='mb-4 flex items-center gap-4'>
                     <div className='border rounded-full bg-linear-to-r from-[#88CA8B] to-[#45A71C] w-[15px] h-[15px]'></div>
-                    <h3 className="text-base md:text-2xl font-semibold text-white">
-                      Who We Are
-                    </h3>
+                      <h3 className="text-base md:text-2xl font-semibold text-white">
+                        Our Mission & Vision
+                      </h3>
+                    </div>
+                    <p className="text-xs md:text-base text-gray-300">
+                      Everyday practice shows that the constant information and propaganda support of our activities plays an important role in shaping the personnel training system and meets urgent needs.
+                    </p>
                   </div>
-                  <p className="text-xs md:text-base text-gray-300">
-                    Universal Liquidity Protocol is a 100% pre-scratched cryptome. There are 1 Million Minutes, and 60% of them can be yours (60% - ICO). Utility & security token (applies to all transactions and gives a monthly dividend).
+                  <p className="text-sm md:text-xl font-semibold text-white">
+                    <span className="text-[#39FF14]">LIQUIDITY PROTOCOL</span> provides the building blocks that make all this possible.
                   </p>
                 </div>
-                <div>
-                  <div className='mb-4 flex items-center gap-4'>
-                  <div className='border rounded-full bg-linear-to-r from-[#88CA8B] to-[#45A71C] w-[15px] h-[15px]'></div>
-                    <h3 className="text-base md:text-2xl font-semibold text-white">
-                      Our Mission & Vision
-                    </h3>
-                  </div>
-                  <p className="text-xs md:text-base text-gray-300">
-                    Everyday practice shows that the constant information and propaganda support of our activities plays an important role in shaping the personnel training system and meets urgent needs.
-                  </p>
-                </div>
-                <p className="text-sm md:text-xl font-semibold text-white">
-                  <span className="text-[#39FF14]">LIQUIDITY PROTOCOL</span> provides the building blocks that make all this possible.
-                </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </motion.div>
 
       {/* Roadmap Section */}
-      <section className="max-w-[1096px] mx-auto px-6">
-        <div className='flex justify-between mb-[50px] md:mb-[100px]'>
-          <h2 className="text-3xl md:text-5xl font-bold font-cleanow text-[#6CEA31] mb-12 text-center text-shadow-[-3px_3px_#054642]">OUR ROADMAP</h2>
-          <div className="hidden md:flex gap-12">
-            {/* <Image
-              src="/roadmap/arrow_left.svg"
-              alt="Arrow Left"
-              width={48}
-              height={48}
-              className='cursor-pointer'
-            />
-            <Image
-              src="/roadmap/arrow_right.svg"
-              alt="Arrow Right"
-              width={48}
-              height={48}
-              className='cursor-pointer'
-            /> */}
+      <motion.div
+          className="roadmap"
+          initial="hidden"
+          animate="visible"
+          custom={0}
+          variants={Roadmap}
+      >
+        <section className="max-w-[1096px] mx-auto px-6">
+          <div className='flex justify-between mb-[50px] md:mb-[100px]'>
+            <h2 className="text-3xl md:text-5xl font-bold font-cleanow text-[#6CEA31] mb-12 text-center text-shadow-[-3px_3px_#054642]">OUR ROADMAP</h2>
+            <div className="hidden md:flex gap-12">
+              {/* <Image
+                src="/roadmap/arrow_left.svg"
+                alt="Arrow Left"
+                width={48}
+                height={48}
+                className='cursor-pointer'
+              />
+              <Image
+                src="/roadmap/arrow_right.svg"
+                alt="Arrow Right"
+                width={48}
+                height={48}
+                className='cursor-pointer'
+              /> */}
+            </div>
           </div>
-        </div>
-        <div className="relative">
-          <div className="flex flex-col md:flex-row justify-between gap-24 md:gap-8">
-            {roadmapItems.map((item, index) => (
-              <div key={index} className="flex-1 bg-[#221846] rounded-3xl p-[10px]">
-                <div className='border-[3px] border-[#B999FE] rounded-3xl py-[15px] md:py-[30px] pl-[40px] pr-[15px] relative'>
-                  <h3 className="text-sm font-semibold text-white absolute top-[-90px] left-5">{item.date}</h3>
-                  <div className='flex'>
-                    <Image
-                      src="/roadmap/roadmap.svg"
-                      alt="Roadmap Illustration"
-                      width={21}
-                      height={111}
-                      className='mt-[-110px] mr-[10px]'
-                    />
-                    <h4 className="text-2xl font-cleanow mb-2 md:mb-4 text-white">{item.title}</h4>
+          <div className="relative">
+            <div className="flex flex-col md:flex-row justify-between gap-24 md:gap-8">
+              {roadmapItems.map((item, index) => (
+                <div key={index} className="flex-1 bg-[#221846] rounded-3xl p-[10px]">
+                  <div className='border-[3px] border-[#B999FE] rounded-3xl py-[15px] md:py-[30px] pl-[40px] pr-[15px] relative'>
+                    <h3 className="text-sm font-semibold text-white absolute top-[-90px] left-5">{item.date}</h3>
+                    <div className='flex'>
+                      <Image
+                        src="/roadmap/roadmap.svg"
+                        alt="Roadmap Illustration"
+                        width={21}
+                        height={111}
+                        className='mt-[-110px] mr-[10px]'
+                      />
+                      <h4 className="text-2xl font-cleanow mb-2 md:mb-4 text-white">{item.title}</h4>
+                    </div>
+                    <p className="text-gray-500">{item.description}</p>
                   </div>
-                  <p className="text-gray-500">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </motion.div>
+
+      {/* Partners Section */}
+      <motion.div
+        className="introduction"
+        initial="hidden"
+        animate="visible"
+        custom={0}
+        variants={Partner}
+
+      >
+        <section className="max-w-[1096px] mx-auto px-6">
+          <h2 className="text-2xl md:text-3xl font-bold font-cleanow text-[#03D29E] mb-6 md:mb-12 text-center text-shadow-[-3px_3px_#054642]">OUR TOP PARTNER</h2>
+          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6">
+            {partners.map((partner, index) => (
+              <div key={index} className='bg-[#00D49480] p-[4px] md:p-[8px] rounded-full'>
+                <div
+                  className="px-3 md:px-6 py-1 md:py-3 bg-[#013A2B] rounded-full border-[2px] md:border-[5px] border-[#00D494] flex items-center gap-2"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={24}
+                    height={24}
+                  />
+                  <span className="text-base md:text-2xl text-[#3BF474] font-cleanow">{partner.name}</span>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Partners Section */}
-      <section className="max-w-[1096px] mx-auto px-6">
-        <h2 className="text-2xl md:text-3xl font-bold font-cleanow text-[#03D29E] mb-6 md:mb-12 text-center text-shadow-[-3px_3px_#054642]">OUR TOP PARTNER</h2>
-        <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6">
-          {partners.map((partner, index) => (
-            <div key={index} className='bg-[#00D49480] p-[4px] md:p-[8px] rounded-full'>
-              <div
-                className="px-3 md:px-6 py-1 md:py-3 bg-[#013A2B] rounded-full border-[2px] md:border-[5px] border-[#00D494] flex items-center gap-2"
-              >
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={24}
-                  height={24}
-                />
-                <span className="text-base md:text-2xl text-[#3BF474] font-cleanow">{partner.name}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+        </section>
+      </motion.div>
 
       {/* Features Section */}
       <div className='relative'>
@@ -321,52 +364,52 @@ export default function Home() {
           </div>
         </section>
       </div>
-
       {/* Community Section */}
-      <section className="max-w-[1096px] mx-auto mb-[50px] px-6 text-center relative">
-        <Image
-          src="/community/ribbon5.svg"
-          alt="Ribbon"
-          width={86}
-          height={95}
-          className='absolute top-0 left-0 translate-x-[-100px] translate-y-[200px] transform transition-transform duration-300 hidden md:block'
-        />
-        <Image
-          src="/community/ribbon3.svg"
-          alt="Ribbon"
-          width={112}
-          height={112}
-          className='absolute bottom-0 left-0 translate-x-[-100px] transform transition-transform duration-300 hidden md:block'
-        />
-        <Image
-          src="/community/ribbon1.svg"
-          alt="Ribbon"
-          width={119}
-          height={140}
-          className='absolute left-1/2 -translate-x-1/2 translate-y-[50px] transform transition-transform duration-300 hidden md:block'
-        />
-        <Image
-          src="/community/ribbon4.svg"
-          alt="Ribbon"
-          width={116}
-          height={114}
-          className='absolute top-0 right-0 translate-x-[100px] translate-y-[100px] transform transition-transform duration-300 hidden md:block'
-        />
-        <Image
-          src="/community/ribbon2.svg"
-          alt="Ribbon"
-          width={94}
-          height={96}
-          className='absolute bottom-0 right-0 translate-x-[100px] transform transition-transform duration-300 hidden md:block'
-        />
+        <section className="max-w-[1096px] mx-auto mb-[50px] px-6 text-center relative">
+          <Image
+            src="/community/ribbon5.svg"
+            alt="Ribbon"
+            width={86}
+            height={95}
+            className='absolute top-0 left-0 translate-x-[-100px] translate-y-[200px] transform transition-transform duration-300 hidden md:block'
+          />
+          <Image
+            src="/community/ribbon3.svg"
+            alt="Ribbon"
+            width={112}
+            height={112}
+            className='absolute bottom-0 left-0 translate-x-[-100px] transform transition-transform duration-300 hidden md:block'
+          />
+          <Image
+            src="/community/ribbon1.svg"
+            alt="Ribbon"
+            width={119}
+            height={140}
+            className='absolute left-1/2 -translate-x-1/2 translate-y-[50px] transform transition-transform duration-300 hidden md:block'
+          />
+          <Image
+            src="/community/ribbon4.svg"
+            alt="Ribbon"
+            width={116}
+            height={114}
+            className='absolute top-0 right-0 translate-x-[100px] translate-y-[100px] transform transition-transform duration-300 hidden md:block'
+          />
+          <Image
+            src="/community/ribbon2.svg"
+            alt="Ribbon"
+            width={94}
+            height={96}
+            className='absolute bottom-0 right-0 translate-x-[100px] transform transition-transform duration-300 hidden md:block'
+          />
 
-        <h2 className="text-3xl md:text-5xl font-bold font-cleanow text-[#A689E7] text-shadow-[-3px_3px_#391F72] mt-10 md:mt-60 mb-[50px] max-w-[850px] mx-auto leading-[120%]">
-          Join our vibrant community of crypto enthusiasts, investors, and innovators.
-        </h2>
-        <button className="bg-[#39FF14] text-black px-8 py-3 rounded-full font-semibold font-cleanow text-lg hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736]">
-          START USING
-        </button>
-      </section>
+          <h2 className="text-3xl md:text-5xl font-bold font-cleanow text-[#A689E7] text-shadow-[-3px_3px_#391F72] mt-10 md:mt-60 mb-[50px] max-w-[850px] mx-auto leading-[120%]">
+            Join our vibrant community of crypto enthusiasts, investors, and innovators.
+          </h2>
+          <button className="bg-[#39FF14] text-black px-8 py-3 rounded-full font-semibold font-cleanow text-lg hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736]">
+            START USING
+          </button>
+        </section>
+
 
       {/* FAQ Section */}
       <section className="max-w-[1096px] w-full px-6 mx-auto mb-12 md:mb-24">
