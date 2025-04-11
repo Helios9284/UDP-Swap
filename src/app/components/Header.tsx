@@ -53,7 +53,7 @@ const Header = () => {
             <Link
               key={item.path}
               href={item.path}
-              className={`text-gray-300 hover:text-white transition-colors ${pathname === item.path ? 'text-white border-b-2 border-white' : ''
+              className={`text-gray-300 hover:text-white transition-colors ${pathname === item.path ? 'text-white border-b-2 border-[#6FD24D]' : ''
                 }`}
             >
               {item.name}
@@ -74,7 +74,7 @@ const Header = () => {
               <Link
                 key={item.path}
                 href={item.path}
-                className={`text-gray-300 hover:text-white transition-colors ${pathname === item.path ? 'text-white border-l-2 border-white pl-2' : 'pl-2'
+                className={`text-gray-300 hover:text-white transition-colors ${pathname === item.path ? 'text-white border-l-2 border-[#6FD24D] pl-2' : 'pl-2'
                   }`}
                 onClick={() => setMobileMenuOpen(false)}
               >

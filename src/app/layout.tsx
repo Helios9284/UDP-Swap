@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} !bg-[#000618] text-white min-h-screen flex flex-col relative`}>
         <div className="absolute inset-0 bg-[url('/star.svg')] bg-repeat opacity-100 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-[url('/clouds.svg')] bg-cover bg-no-repeat opacity-75 pointer-events-none"></div>
+        <div className=" absolute  inset-0 bg-[url('/clouds.svg')] bg-cover bg-no-repeat opacity-75 pointer-events-none"></div> 
         <Providers>
           <Header />
           <main className="flex-grow">

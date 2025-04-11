@@ -75,6 +75,13 @@ export default function Home() {
         <div className="max-w-[1096px] mx-auto px-6">
           <div className="flex items-center justify-between">
             <div className="max-w-2xl">
+            {/* <Image
+              src="/vector/vector1.svg"
+              alt="vector"
+              width={457}
+              height={457}
+              className='absolute left-0 -top-30 -z-1  hidden md:block'
+            /> */}
               <h1 className="text-3xl md:text-5xl font-cleanow mb-[30px] text-[#6CEA31] leading-tight text-shadow-[-3px_3px_#054642]">
                 Universal Liquidity Protocol will accelerate your business
               </h1>
@@ -85,22 +92,44 @@ export default function Home() {
                 CREATE A CONTRACT
               </button>
             </div>
-
+            {Array.from({ length: 50 }).map((_, i) => {
+              const size = Math.random() * 2 + 2; // Star size between 1px - 3px
+              return (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-white animate-twinkle shadow-[0_0_6px_#ffffff]"
+                  style={{
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    top: `${Math.random() * 100}%`,
+                    left: `${Math.random() * 100}%`,
+                    animationDelay: `${Math.random() * 3}s`,
+                  }}
+                />
+              );
+            })}
           </div>
         </div>
         <Image
           src="/mascot.svg"
           alt="ULP Mascot"
-          width={542}
-          height={478}
+          width={642}
+          height={578}
           className='absolute right-0 top-0 hidden md:block'
+        />
+        <Image  
+          src="/mascot2.png"
+          alt="ULP Mascot"
+          width={642}
+          height={578}
+          className='absolute right-0 top-0 hidden md:block object-contain animate-blink '
         />
         <Image
           src="/wave.svg"
           alt="Wave"
           width={2257}
           height={1257}
-          className='absolute left-0 top-0 -translate-y-1/2 hidden md:block'
+          className='absolute left-30 -z-1 -translate-y-1/2 hidden md:block'
         />
       </section>
 
@@ -125,13 +154,21 @@ export default function Home() {
             <div className="flex flex-col items-center md:min-w-[380px] px-8 md:px-16 pt-8 md:pt-16 pb-16 md:pb-32 rounded-3xl border-[3px] border-[#8FD11A] text-white text-center">
               <p className='font-cleanow text-2xl'>Protocol #1</p>
               <p className='italic'><span className='opacity-40'>from</span> Universal Liquidity Protocol</p>
-              <Image
-                src="/protocol/protocol.svg"
-                alt="Protocol Illustration"
-                width={205}
-                height={184}
-                className='mt-6'
-              />
+`            <Image
+              src="/protocol/Group.png"
+              alt="Protocol Illustration"
+              width={131}
+              height={131}
+              className='mt-6 relative'
+            />
+            <Image
+              src="/protocol/Group2.png"
+              alt="Protocol Illustration"
+              width={185}
+              height={185}
+              className='mt-6 absolute  translate-y-[45px] animate-spin '
+            />
+            
             </div>
             <div className="flex-1">
               <h2 className="text-3xl md:text-[50px] font-bold font-cleanow text-[#00D49B] mb-[30px] md:mb-[60px] text-shadow-[-3px_3px_#054642] relative">
@@ -147,12 +184,7 @@ export default function Home() {
               <div className="space-y-8">
                 <div>
                   <div className='mb-4 flex items-center gap-4'>
-                    <Image
-                      src="/protocol/circle.svg"
-                      alt="Circle Illustration"
-                      width={15}
-                      height={15}
-                    />
+                    <div className='border rounded-full bg-linear-to-r from-[#88CA8B] to-[#45A71C] w-[15px] h-[15px]'></div>
                     <h3 className="text-base md:text-2xl font-semibold text-white">
                       Who We Are
                     </h3>
@@ -163,12 +195,7 @@ export default function Home() {
                 </div>
                 <div>
                   <div className='mb-4 flex items-center gap-4'>
-                    <Image
-                      src="/protocol/circle.svg"
-                      alt="Circle Illustration"
-                      width={15}
-                      height={15}
-                    />
+                  <div className='border rounded-full bg-linear-to-r from-[#88CA8B] to-[#45A71C] w-[15px] h-[15px]'></div>
                     <h3 className="text-base md:text-2xl font-semibold text-white">
                       Our Mission & Vision
                     </h3>
@@ -191,7 +218,7 @@ export default function Home() {
         <div className='flex justify-between mb-[50px] md:mb-[100px]'>
           <h2 className="text-3xl md:text-5xl font-bold font-cleanow text-[#6CEA31] mb-12 text-center text-shadow-[-3px_3px_#054642]">OUR ROADMAP</h2>
           <div className="hidden md:flex gap-12">
-            <Image
+            {/* <Image
               src="/roadmap/arrow_left.svg"
               alt="Arrow Left"
               width={48}
@@ -204,7 +231,7 @@ export default function Home() {
               width={48}
               height={48}
               className='cursor-pointer'
-            />
+            /> */}
           </div>
         </div>
         <div className="relative">
