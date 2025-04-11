@@ -85,6 +85,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-16 md:gap-24 max-w-screen overflow-x-hidden">
+      <div className='w-[360px] h-[360px] scale-200 rounded-full blur-[100px] md:blur-[180px] bg-[#BC01FE] opacity-40 absolute -top-20 left-0 -z-1' />
       {/* Hero Section */}
       <section className="relative py-10 md:pt-32 md:pb-40">
         <div className="max-w-[1096px] mx-auto px-6">
@@ -123,37 +124,40 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <Image
+          <Image
           src="/mascot.svg"
           alt="ULP Mascot"
           width={742}
           height={678}
           className='absolute right-0 top-0 hidden md:block'
-        />
-        <Image  
-          src="/mascot.png"
-          alt="ULP Mascot"
-          width={742}
-          height={678}
-          className='absolute right-0 top-0 hidden md:block object-contain animate-blink '
-        />
-        <Image
+          />
+          <Image  
+            src="/mascot.png"
+            alt="ULP Mascot"
+            width={742}
+            height={678}
+            className='absolute right-0 top-0 hidden md:block object-contain animate-blink '
+          />
+          <div className='absolute -top-20 right-0 w-[600px] h-[600px] blur-[180px]  scale-[300%] bg-[#189A1D]  opacity-25 -z-1' />
+          <Image
           src="/wave.svg"
           alt="Wave"
           width={2257}
           height={1257}
           className='absolute left-30 -z-1 -translate-y-1/2 hidden md:block'
-        />
+          />
       </section>
 
       {/* Introduction Section */}
       <motion.div
-          className="introduction"
+          className="introduction mt-[200px] relative"
           initial="hidden"
           animate="visible"
           custom={0}
           variants={rightFollow}
       >
+      <div className='absolute w-[600px] h-[200px] blur-[80px] md:blur-[180px] bg-purple-950 -top-[200px] right-0 -z-1'></div>
+        
         <section className="relative">
           <Image
             src="/protocol/bg.svg"

@@ -18,6 +18,7 @@ export default function Future() {
 
   return (
     <div className="container mx-auto px-6 py-12 text-white">
+      <div className='w-[360px] h-[360px] scale-200 rounded-full blur-[100px] md:blur-[180px] bg-[#BC01FE] opacity-40 absolute -top-20 left-0 -z-1'></div>
       <h1 className="text-4xl font-bold text-center mb-12">
         Future Development
       </h1>

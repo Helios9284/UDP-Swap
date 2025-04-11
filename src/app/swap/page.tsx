@@ -388,6 +388,7 @@ export default function Swap() {
   }, []);
   return (
     <div className="">
+      <div className='w-[360px] h-[360px] scale-200 rounded-full blur-[100px] md:blur-[180px] bg-[#BC01FE] opacity-40 absolute -top-20 left-0 -z-1'></div>
       <div className="flex flex-col md:flex-row  md:bg-[url('/swap/wave.svg')] bg-no-repeat bg-contain">
         {/* <Image
           src="/swap/wave.svg"

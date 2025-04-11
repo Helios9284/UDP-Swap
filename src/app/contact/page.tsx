@@ -3,6 +3,7 @@
 export default function Contact() {
   return (
     <div className="container mx-auto px-6 py-12 text-white">
+      <div className='w-[360px] h-[360px] scale-200 rounded-full blur-[100px] md:blur-[180px] bg-[#BC01FE] opacity-40 absolute -top-20 left-0 -z-1'></div>
       <div className="max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
         <p className="text-center text-gray-400 mb-12">
