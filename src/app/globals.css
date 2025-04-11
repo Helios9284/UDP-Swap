@@ -107,3 +107,13 @@ input[type=number] {
 .animate-twinkle {
   animation: twinkle 2s ease-in-out infinite;
 }
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 13s linear infinite;
+}

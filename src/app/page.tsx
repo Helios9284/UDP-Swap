@@ -191,7 +191,7 @@ export default function Home() {
                 alt="Protocol Illustration"
                 width={185}
                 height={185}
-                className='mt-6 absolute  translate-y-[45px] animate-spin duration-[3000ms] ease-in-out'
+                className=' absolute mt-0.5  translate-y-[50px] animate-spin  duration-[3000ms] ease-in-out'
               />
               
               </div>
