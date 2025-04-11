@@ -1,10 +1,39 @@
+'use client';
+import { useState, useEffect} from 'react';
+import {Star} from "@/app/types/types";
+
 export default function Future() {
+  const [stars, setStars] = useState<Star[]>([]);
+
+  useEffect(() => {
+    const generatedStars: Star[] = Array.from({ length: 50 }).map(() => ({
+      size: Math.random() * 2 + 2,
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      delay: Math.random() * 3,
+    }));
+
+    setStars(generatedStars);
+  }, []);
+
   return (
     <div className="container mx-auto px-6 py-12 text-white">
       <h1 className="text-4xl font-bold text-center mb-12">
         Future Development
       </h1>
-      
+              {stars.map((star, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white animate-twinkle shadow-[0_0_6px_#ffffff]"
+            style={{
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              top: `${star.top}%`,
+              left: `${star.left}%`,
+              animationDelay: `${star.delay}s`,
+            }}
+          />
+        ))}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Roadmap Item 1 */}
         <div className="bg-[#1a1b2e] p-6 rounded-xl">

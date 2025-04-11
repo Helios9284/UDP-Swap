@@ -1,17 +1,12 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import {Star} from "@/app/types/types";
 import { useState, useEffect} from 'react';
 import {motion, useAnimation } from "framer-motion";
-import {heroVariants, Introduction, Roadmap, Partner, Community} from "@/app/animation/animation.";
+import {leftFollow, rightFollow} from "@/app/animation/animation.";
 
 export default function Home() {
-  type Star = {
-    size: number;
-    top: number;
-    left: number;
-    delay: number;
-  };
   const [stars, setStars] = useState<Star[]>([]); // Type defined here!
   
     useEffect(() => {
@@ -100,7 +95,7 @@ export default function Home() {
                 initial="hidden"
                 animate="visible"
                 custom={0}
-                variants={heroVariants}
+                variants={leftFollow}
               >
                 <h1 className="text-3xl md:text-5xl font-cleanow mb-[30px] text-[#6CEA31] leading-tight text-shadow-[-3px_3px_#054642]">
                   Universal Liquidity Protocol will accelerate your business
@@ -157,7 +152,7 @@ export default function Home() {
           initial="hidden"
           animate="visible"
           custom={0}
-          variants={Introduction}
+          variants={rightFollow}
       >
         <section className="relative">
           <Image
@@ -184,14 +179,14 @@ export default function Home() {
                 alt="Protocol Illustration"
                 width={131}
                 height={131}
-                className='mt-6 relative'
+                className='mt-10 relative'
                 />
                 <Image
                 src="/protocol/Group2.png"
                 alt="Protocol Illustration"
                 width={185}
                 height={185}
-                className=' absolute mt-0.5  translate-y-[50px] animate-spin  duration-[3000ms] ease-in-out'
+                className=' absolute mt-3.5  translate-y-[50px] animate-spin  duration-[3000ms] ease-in-out'
               />
               
               </div>
@@ -245,7 +240,7 @@ export default function Home() {
           initial="hidden"
           animate="visible"
           custom={0}
-          variants={Roadmap}
+          variants={leftFollow}
       >
         <section className="max-w-[1096px] mx-auto px-6">
           <div className='flex justify-between mb-[50px] md:mb-[100px]'>
@@ -298,7 +293,7 @@ export default function Home() {
         initial="hidden"
         animate="visible"
         custom={0}
-        variants={Partner}
+        variants={rightFollow}
 
       >
         <section className="max-w-[1096px] mx-auto px-6">

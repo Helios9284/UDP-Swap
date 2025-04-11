@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import Image from 'next/image';
+import {Star} from "@/app/types/types";
 
 const popularPairs = [
   { pair: 'PEPE/USDT', change: '+12%' },
@@ -12,6 +13,7 @@ const popularPairs = [
 ];
 
 export default function Swap() {
+  const [stars, setStars] = useState<Star[]>([]);
   const [activeTab, setActiveTab] = useState('DEX');
   const [selectedToken1, setSelectedToken1] = useState({ symbol: 'ETH', balance: '2.8989', balanceUSD: '6726.2307' });
   const [selectedToken2, setSelectedToken2] = useState({ symbol: 'EOS', balance: '400.8989', balanceUSD: '284.6382' });
@@ -374,6 +376,16 @@ export default function Swap() {
     }
   };
 
+  useEffect(() => {
+    const generatedStars: Star[] = Array.from({ length: 50 }).map(() => ({
+      size: Math.random() * 2 + 2,
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      delay: Math.random() * 3,
+    }));
+
+    setStars(generatedStars);
+  }, []);
   return (
     <div className="">
       <div className="flex flex-col md:flex-row md:bg-[url('/swap/wave.svg')] bg-no-repeat bg-contain">
@@ -392,6 +404,19 @@ export default function Swap() {
             </button>
           ))}
         </div>
+        {stars.map((star, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white animate-twinkle shadow-[0_0_6px_#ffffff]"
+            style={{
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              top: `${star.top}%`,
+              left: `${star.left}%`,
+              animationDelay: `${star.delay}s`,
+            }}
+          />
+        ))}
 
         {/* Desktop Sidebar */}
         <div className="hidden md:flex w-48 bg-transparent flex-col justify-center z-[100] h-screen absolute top-0">
