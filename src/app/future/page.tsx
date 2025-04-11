@@ -21,19 +21,19 @@ export default function Future() {
       <h1 className="text-4xl font-bold text-center mb-12">
         Future Development
       </h1>
-              {stars.map((star, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-white animate-twinkle shadow-[0_0_6px_#ffffff]"
-            style={{
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-              top: `${star.top}%`,
-              left: `${star.left}%`,
-              animationDelay: `${star.delay}s`,
-            }}
-          />
-        ))}
+      {stars.map((star, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full bg-white animate-twinkle shadow-[0_0_6px_#ffffff]"
+          style={{
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            top: `${star.top}%`,
+            left: `${star.left}%`,
+            animationDelay: `${star.delay}s`,
+          }}
+        />
+      ))}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Roadmap Item 1 */}
         <div className="bg-[#1a1b2e] p-6 rounded-xl">

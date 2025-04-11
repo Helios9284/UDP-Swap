@@ -388,7 +388,14 @@ export default function Swap() {
   }, []);
   return (
     <div className="">
-      <div className="flex flex-col md:flex-row md:bg-[url('/swap/wave.svg')] bg-no-repeat bg-contain">
+      <div className="flex flex-col md:flex-row  md:bg-[url('/swap/wave.svg')] bg-no-repeat bg-contain">
+        {/* <Image
+          src="/swap/wave.svg"
+          alt="ULP Mascot"
+          width={2257}
+          height={1257}
+          className='absolute right-0 top-0 hidden md:block'
+        /> */}
         {/* Mobile Tab Navigation */}
         <div className="md:hidden flex overflow-x-auto bg-[#1a1b2e] p-2">
           {tabs.map((tab) => (

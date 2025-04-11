@@ -298,7 +298,14 @@ export default function Home() {
       >
         <section className="max-w-[1096px] mx-auto px-6">
           <h2 className="text-2xl md:text-3xl font-bold font-cleanow text-[#03D29E] mb-6 md:mb-12 text-center text-shadow-[-3px_3px_#054642]">OUR TOP PARTNER</h2>
-          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6">
+          <div className="relative flex flex-wrap justify-center items-center gap-3 md:gap-6">
+            <Image
+              src= "/partners/Vector 1.svg"
+              alt= "partner"  
+              width={1124}
+              height={1124}
+              className='absolute md:-mt-35 hidden md:block'
+            />
             {partners.map((partner, index) => (
               <div key={index} className='bg-[#00D49480] p-[4px] md:p-[8px] rounded-full'>
                 <div
@@ -314,50 +321,65 @@ export default function Home() {
                 </div>
               </div>
             ))}
+             <Image
+              src= "/partners/Vector 2.svg"
+              alt= "partner"  
+              width={1124}
+              height={1124}
+              className='absolute mt-30 hidden md:block'
+            />
           </div>
         </section>
       </motion.div>
 
       {/* Features Section */}
       <div className='relative'>
-        <section className="max-w-[1096px] mx-auto px-6">
-          <Image
-            src='/future/ribbon1.svg'
-            alt='Ribbon'
-            width={264}
-            height={278}
-            className='absolute left-0 bottom-[-200px] hidden md:block'
-          />
-          <Image
-            src='/future/ribbon2.svg'
-            alt='Ribbon'
-            width={264}
-            height={278}
-            className='absolute top-10 md:top-0 right-0 hidden md:block'
-          />
-          <div className='flex flex-col md:flex-row gap-6 md:gap-12 justify-between items-center mb-6 md:mb-12'>
-            <h2 className="text-3xl md:text-5xl font-bold font-cleanow text-[#6CEA31] text-shadow-[-3px_3px_#054642]">FUTURE DEVELOPMENT</h2>
-            <button className="bg-[#39FF14] text-black px-8 py-3 rounded-full font-semibold font-cleanow text-lg hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736]">
-              START USING
-            </button>
-          </div>
-          <div className="max-w-5xl mx-auto md:bg-[url('/future/bg1.svg')] bg-no-repeat bg-size-[100%_100%] md:p-6">
-            <div className="md:bg-[url('/future/bg2.svg')] bg-no-repeat bg-size-[100%_100%] grid grid-cols-1 md:grid-cols-3 py-6 md:py-12">
-              {features.map((feature, index) => (
-                <div key={index} className={`py-0 px-6 flex flex-col items-center gap-4 ${index == 0 ? '' : 'border-t border-t-[#145F80] md:border-t-[0px] md:border-l md:border-l-[#145F80]'}`}>
-                  <Image
-                    src={feature.icon}
-                    alt={feature.title}
-                    width={80}
-                    height={87}
-                  />
-                  <h3 className="text-2xl font-semibold font-cleanow text-[#8FD11A]">{feature.title}</h3>
-                  <p className="text-gray-300 text-center">{feature.description}</p>
-                </div>
-              ))}
+        <motion.div
+          className="introduction"
+          initial="hidden"
+          animate="visible"
+          custom={0}
+          variants={leftFollow}
+        >
+          <section className="max-w-[1096px] mx-auto px-6">
+            <Image
+              src='/future/ribbon1.svg'
+              alt='Ribbon'
+              width={264}
+              height={278}
+              className='absolute left-0 bottom-[-200px] hidden md:block'
+            />
+            <Image
+              src='/future/ribbon2.svg'
+              alt='Ribbon'
+              width={264}
+              height={278}
+              className='absolute top-10 md:top-0 right-0 hidden md:block'
+            />
+            <div className='flex flex-col md:flex-row gap-6 md:gap-12 justify-between items-center mb-6 md:mb-12'>
+              <h2 className="text-3xl md:text-5xl font-bold font-cleanow text-[#6CEA31] text-shadow-[-3px_3px_#054642]">FUTURE DEVELOPMENT</h2>
+              <button className="bg-[#39FF14] text-black px-8 py-3 rounded-full font-semibold font-cleanow text-lg hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736]">
+                START USING
+              </button>
             </div>
-          </div>
-        </section>
+            <div className="max-w-5xl mx-auto md:bg-[url('/future/bg1.svg')] bg-no-repeat bg-size-[100%_100%] md:p-6">
+              <div className="md:bg-[url('/future/bg2.svg')] bg-no-repeat bg-size-[100%_100%] grid grid-cols-1 md:grid-cols-3 py-6 md:py-12">
+                {features.map((feature, index) => (
+                  <div key={index} className={`py-0 px-6 flex flex-col items-center gap-4 ${index == 0 ? '' : 'border-t border-t-[#145F80] md:border-t-[0px] md:border-l md:border-l-[#145F80]'}`}>
+                    <Image
+                      src={feature.icon}
+                      alt={feature.title}
+                      width={80}
+                      height={87}
+                    />
+                    <h3 className="text-2xl font-semibold font-cleanow text-[#8FD11A]">{feature.title}</h3>
+                    <p className="text-gray-300 text-center">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </motion.div>
       </div>
       {/* Community Section */}
         <section className="max-w-[1096px] mx-auto mb-[50px] px-6 text-center relative">
@@ -366,35 +388,35 @@ export default function Home() {
             alt="Ribbon"
             width={86}
             height={95}
-            className='absolute top-0 left-0 translate-x-[-100px] translate-y-[200px] transform transition-transform duration-300 hidden md:block'
+            className='absolute animate-float-1 top-0 left-0 translate-x-[-100px] translate-y-[200px] transform transition-transform duration-300 hidden md:block'
           />
           <Image
             src="/community/ribbon3.svg"
             alt="Ribbon"
             width={112}
             height={112}
-            className='absolute bottom-0 left-0 translate-x-[-100px] transform transition-transform duration-300 hidden md:block'
+            className='absolute animate-float-2 bottom-0 left-0 translate-x-[-100px] transform transition-transform duration-300 hidden md:block'
           />
           <Image
             src="/community/ribbon1.svg"
             alt="Ribbon"
             width={119}
             height={140}
-            className='absolute left-1/2 -translate-x-1/2 translate-y-[50px] transform transition-transform duration-300 hidden md:block'
+            className='absolute   left-1/2 -translate-x-1/2 translate-y-[50px] transform transition-transform duration-300 hidden md:block'
           />
           <Image
             src="/community/ribbon4.svg"
             alt="Ribbon"
             width={116}
             height={114}
-            className='absolute top-0 right-0 translate-x-[100px] translate-y-[100px] transform transition-transform duration-300 hidden md:block'
+            className='absolute animate-float-3 top-0 right-0 translate-x-[100px] translate-y-[100px] transform transition-transform duration-300 hidden md:block'
           />
           <Image
             src="/community/ribbon2.svg"
             alt="Ribbon"
             width={94}
             height={96}
-            className='absolute bottom-0 right-0 translate-x-[100px] transform transition-transform duration-300 hidden md:block'
+            className='absolute animate-float-4 bottom-0 right-0 translate-x-[100px] transform transition-transform duration-300 hidden md:block'
           />
 
           <h2 className="text-3xl md:text-5xl font-bold font-cleanow text-[#A689E7] text-shadow-[-3px_3px_#391F72] mt-10 md:mt-60 mb-[50px] max-w-[850px] mx-auto leading-[120%]">

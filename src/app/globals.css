@@ -117,3 +117,85 @@ input[type=number] {
 .animate-spin {
   animation: spin 13s linear infinite;
 }
+
+@keyframes float-4 { 
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(55px, -50px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-10px, 10px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(30px, -35px) rotate(0.5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+@keyframes float-1 { 
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(55px, -50px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-10px, 10px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(30px, -35px) rotate(0.5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+@keyframes float-2 { 
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(55px, -50px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-10px, 10px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(30px, -35px) rotate(0.5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+@keyframes float-3 { 
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(55px, -50px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-10px, 10px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(30px, -35px) rotate(0.5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.animate-float-1 {
+  animation: float-1 12s ease-in-out infinite;
+}
+.animate-float-2 {
+  animation: float-2 10s ease-in-out infinite;
+}
+.animate-float-3 {
+  animation: float-3 14s ease-in-out infinite;
+}
+.animate-float-4 {
+  animation: float-4 11s ease-in-out infinite;
+}
