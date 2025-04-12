@@ -37,7 +37,7 @@ export default function Future() {
       ))}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Roadmap Item 1 */}
-        <div className="bg-[#1a1b2e] p-6 rounded-xl">
+        <div className="future bg-[#1a1b2e] cursor-pointer  p-6 rounded-xl">
           <h3 className="text-xl font-semibold mb-4 text-[#39FF14]">Q2 2024</h3>
           <ul className="space-y-3 text-gray-300">
             <li>• Launch of core protocol</li>
@@ -48,7 +48,7 @@ export default function Future() {
         </div>
 
         {/* Roadmap Item 2 */}
-        <div className="bg-[#1a1b2e] p-6 rounded-xl">
+        <div className="future bg-[#1a1b2e] cursor-pointer p-6 rounded-xl">
           <h3 className="text-xl font-semibold mb-4 text-[#39FF14]">Q3 2024</h3>
           <ul className="space-y-3 text-gray-300">
             <li>• Advanced trading features</li>
@@ -59,7 +59,7 @@ export default function Future() {
         </div>
 
         {/* Roadmap Item 3 */}
-        <div className="bg-[#1a1b2e] p-6 rounded-xl">
+        <div className="future bg-[#1a1b2e] cursor-pointer p-6 rounded-xl">
           <h3 className="text-xl font-semibold mb-4 text-[#39FF14]">Q4 2024</h3>
           <ul className="space-y-3 text-gray-300">
             <li>• Yield farming</li>

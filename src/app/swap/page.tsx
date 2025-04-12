@@ -41,13 +41,30 @@ export default function Swap() {
       case 'DEX':
         return (
           <div className="flex-1 p-2 md:p-8 relative">
-            <Image
-              src='/swap/dex-bg1.svg'
-              alt='Ribbon'
-              width={606}
-              height={467}
-              className='absolute right-0 hidden md:block'
-            />
+            <div className='absolute -right-10' >
+              <Image
+                src='/swap/portal.png'
+                alt='Ribbon'
+                width={450}
+                height={450}
+                className='tr rotate-45 hidden md:block'
+              />
+              <Image
+                src='/swap/Bitcoin.png'
+                alt='Ribbon'
+                width={180}
+                height={180}
+                className=' absolute top-1.5  right-[360px] hidden md:block'
+              />
+              <Image
+                src='/swap/Eth.png'
+                alt='Ribbon'
+                width={180}
+                height={180}
+                className='absolute -right-0.5  -translate-y-40 hidden md:block'
+              />
+              <div className='w-[120px] h-[120px] md:w-[260px] md:h-[260px] top-1/2 right-1/2 -translate-y-1/2 translate-x-1/2 scale-200 rounded-full blur-[100px]  bg-[#B8F736] opacity-80 absolute  -z-1'></div>
+            </div>
             <Image
               src='/swap/dex-bg2.svg'
               alt='Ribbon'
@@ -57,7 +74,7 @@ export default function Swap() {
             />
             <h1 className="text-3xl md:text-5xl font-bold font-cleanow text-[#00D49B] text-center my-6 md:my-12 text-shadow-[-3px_3px_#054642]">SWAP ANYTIME, ANYWHERE</h1>
             <div className='max-w-lg mx-auto bg-[#111B18] p-[10px] rounded-2xl'>
-              <div className="bg-[#1a1b2e]/50 rounded-2xl p-3 md:p-6 border border-[3px] border-[#B8F736]">
+              <div className="bg-[#1a1b2e]/50 rounded-2xl p-3 md:p-6 border-[3px] border-[#B8F736]">
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-xl font-semibold text-white">Swap</h2>
                   <button className="text-[#39FF14]">
@@ -378,7 +395,7 @@ export default function Swap() {
 
   useEffect(() => {
     const generatedStars: Star[] = Array.from({ length: 50 }).map(() => ({
-      size: Math.random() * 2 + 2,
+      size: Math.random() * 3 + 2,
       top: Math.random() * 100,
       left: Math.random() * 100,
       delay: Math.random() * 3,
@@ -390,13 +407,6 @@ export default function Swap() {
     <div className="">
       <div className='w-[360px] h-[360px] scale-200 rounded-full blur-[100px] md:blur-[180px] bg-[#BC01FE] opacity-40 absolute -top-20 left-0 -z-1'></div>
       <div className="flex flex-col md:flex-row  md:bg-[url('/swap/wave.svg')] bg-no-repeat bg-contain">
-        {/* <Image
-          src="/swap/wave.svg"
-          alt="ULP Mascot"
-          width={2257}
-          height={1257}
-          className='absolute right-0 top-0 hidden md:block'
-        /> */}
         {/* Mobile Tab Navigation */}
         <div className="md:hidden flex overflow-x-auto bg-[#1a1b2e] p-2">
           {tabs.map((tab) => (
@@ -415,7 +425,7 @@ export default function Swap() {
         {stars.map((star, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-white animate-twinkle shadow-[0_0_6px_#ffffff]"
+            className="absolute rounded-full bg-white animate-twinkle shadow-[0_0_10px_#ffffff]"
             style={{
               width: `${star.size}px`,
               height: `${star.size}px`,

@@ -115,8 +115,43 @@ input[type=number] {
 }
 
 .animate-spin {
-  animation: spin 13s linear infinite;
+  animation: spin 10s linear infinite;
 }
+
+@keyframes spin-1 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-1 {
+  animation: spin-1 3s linear infinite;
+}
+
+@keyframes spin-2 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-2 {
+  animation: spin-2 4s linear infinite;
+}
+
+@keyframes spin-3 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-3 {
+  animation: spin-3 8s linear infinite;
+}
+/* background: linear-gradient(180deg, #27362e, rgba(34, 47, 40, 0)); */
+.future:hover {
+  background: linear-gradient(180deg, #27362e, rgba(34, 47, 40, 0));
+}
+
 
 @keyframes float-4 { 
   0% {

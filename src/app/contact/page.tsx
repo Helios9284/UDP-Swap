@@ -1,6 +1,22 @@
 'use client';
 
+import { useState, useEffect} from 'react';
+import {Star} from "@/app/types/types";
+
 export default function Contact() {
+  const [stars, setStars] = useState<Star[]>([]);
+
+  useEffect(() => {
+    const generatedStars: Star[] = Array.from({ length: 50 }).map(() => ({
+      size: Math.random() * 3 + 2,
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      delay: Math.random() * 3,
+    }));
+
+    setStars(generatedStars);
+  }, []);
+
   return (
     <div className="container mx-auto px-6 py-12 text-white">
       <div className='w-[360px] h-[360px] scale-200 rounded-full blur-[100px] md:blur-[180px] bg-[#BC01FE] opacity-40 absolute -top-20 left-0 -z-1'></div>
@@ -9,6 +25,19 @@ export default function Contact() {
         <p className="text-center text-gray-400 mb-12">
           Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
         </p>
+        {stars.map((star, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white animate-twinkle shadow-[0_0_10px_#ffffff]"
+            style={{
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              top: `${star.top}%`,
+              left: `${star.left}%`,
+              animationDelay: `${star.delay}s`,
+            }}
+          />
+        ))}
 
         <form className="space-y-6">
           <div>
@@ -49,7 +78,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="w-full bg-[#39FF14] text-black py-4 rounded-xl font-semibold hover:bg-opacity-90 transition-all"
+            className="w-full bg-[#39FF14]  cursor-pointer text-black py-4 rounded-xl font-semibold hover:bg-opacity-90 transition-all"
           >
             Send Message
           </button>

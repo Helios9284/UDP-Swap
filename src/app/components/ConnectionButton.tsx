@@ -26,7 +26,7 @@ export const ConnectionButton = () => {
             {(() => {
               if (!mounted || !account || !chain) {
                 return (
-                  <button className="bg-[#39FF14] text-black px-6 py-2 rounded-full font-cleanow hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736] cursor-pointer mt-4 md:mt-0" onClick={openConnectModal} type="button">
+                  <button className="bg-[#39FF14]  text-black px-6 py-2 rounded-full font-cleanow hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736] cursor-pointer mt-4 md:mt-0" onClick={openConnectModal} type="button">
                     Connect Wallet
                   </button>
                 );
