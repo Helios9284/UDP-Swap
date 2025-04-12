@@ -55,17 +55,17 @@ const Footer = () => {
               <div className="flex items-center gap-6">
                 <a
                   href="#"
-                  className="text-[#73C11B] hover:shadow-[0_0_20px_0_#7DC71B] hover:rounded-full transition-colors"
+                  className="text-[#73C11B] hover:hover:shadow-[0_0_20px_0_#7DC71B] hover:rounded-full transition-colors"
                   aria-label="Twitter"
                 >
-                  <LiaFacebookF className='w-8 h-8 md:w-12 md:h-12 bg-[#1F2333] rounded-full p-2'/>
+                  <LiaFacebookF className='w-8 h-8 md:w-8 md:h-8 bg-[#1F2333] rounded-full p-2'/>
                 </a>
                 <a
                   href="#"
                   className="text-[#73C11B] hover:shadow-[0_0_20px_0_#7DC71B] hover:rounded-full transition-colors"
                   aria-label="Facebook"
                 >
-                  <TiSocialTwitter className="w-8 h-8 md:w-12 md:h-12  bg-[#1F2333] rounded-full p-2"/>
+                  <TiSocialTwitter className="w-8 h-8 md:w-8 md:h-8  bg-[#1F2333] rounded-full p-2"/>
                 </a>
 
                 <a
@@ -73,7 +73,7 @@ const Footer = () => {
                   className="text-[#73C11B] hover:shadow-[0_0_20px_0_#7DC71B] hover:rounded-full transition-colors"
                   aria-label="Telegram"
                 >
-                  <RiTelegram2Fill className='w-8 h-8 md:w-12 md:h-12  bg-[#1F2333] rounded-full p-2'/>
+                  <RiTelegram2Fill className='w-8 h-8 md:w-8 md:h-8  bg-[#1F2333] rounded-full p-2'/>
                 </a>
               </div>
             </div>
