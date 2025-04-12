@@ -54,7 +54,7 @@ export default function Swap() {
                 alt='Portal'
                 width={350}
                 height={350}
-                className='absolute right-0 -translate-x-33 top-[200px] animate-spin  hidden xl:block'
+                className='absolute right-0 -translate-x-33 top-[200px] animate-spin  hidden xl:block shadow-[0_0_240px_0_#B8F736] rounded-full'
               />
               <Image
                 src='/swap/Eth.png'
@@ -406,7 +406,13 @@ export default function Swap() {
   return (
     <div className="max-w-screen">
       <div className='w-[360px] h-[360px] scale-200 rounded-full blur-[100px] md:blur-[180px] bg-[#BC01FE] opacity-40 absolute -top-20 left-0 -z-1' />
-      <div className="flex flex-col md:flex-row  md:bg-[url('/swap/wave.svg')] bg-no-repeat bg-contain">
+        <Image
+          src= "/swap/wave.svg"
+          alt= "wave"  
+          width={1024}
+          height={100}
+          className='absolute top-0 max-h-full max-w-screen md:w-[1500px]  hidden  md:block -z-1'
+        />
         {/* Mobile Tab Navigation */}
         <div className="md:hidden flex overflow-x-auto bg-[#1a1b2e] p-2">
           {tabs.map((tab) => (
@@ -454,7 +460,7 @@ export default function Swap() {
 
         {/* Main Content */}
         {renderTabContent()}
-      </div>
+      {/* </div> */}
     </div>
   );
 } 
