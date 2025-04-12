@@ -125,18 +125,18 @@ export default function Home() {
           </div>
         </div>
           <Image
-          src="/mascot.svg"
-          alt="ULP Mascot"
-          width={742}
-          height={678}
-          className='absolute right-0 top-0 hidden md:block'
+            src="/mascot.svg"
+            alt="ULP Mascot"
+            width={742}
+            height={678}
+            className='absolute right-0  top-0 hidden md:block'
           />
           <Image  
             src="/mascot.png"
             alt="ULP Mascot"
             width={742}
             height={678}
-            className='absolute right-0 top-0 hidden md:block object-contain animate-blink '
+            className='absolute right-0 top-0  hidden md:block object-contain animate-blink '
           />
           <div className='absolute -top-20 right-0 w-[600px] h-[600px] blur-[180px]  scale-[300%] bg-[#189A1D]  opacity-25 -z-1' />
           <Image
@@ -178,21 +178,20 @@ export default function Home() {
               <div className="flex flex-col items-center md:min-w-[380px] px-8 md:px-16 pt-8 md:pt-16 pb-16 md:pb-32 rounded-3xl border-[3px] border-[#8FD11A] text-white text-center">
                 <p className='font-cleanow text-2xl'>Protocol #1</p>
                 <p className='italic'><span className='opacity-40'>from</span> Universal Liquidity Protocol</p>
-             <Image
-                src="/protocol/Group.png"
-                alt="Protocol Illustration"
-                width={131}
-                height={131}
-                className='mt-10 relative'
-                />
-                <Image
-                src="/protocol/Group2.png"
-                alt="Protocol Illustration"
-                width={185}
-                height={185}
-                className=' absolute mt-3.5  translate-y-[50px] animate-spin  duration-[3000ms] ease-in-out'
-              />
-              
+                  <Image
+                      src="/protocol/Group.png"
+                      alt="Protocol Illustration"
+                      width={131}
+                      height={131}
+                      className='mt-10 relative right-1.5'
+                    />
+                    <Image
+                      src="/protocol/Group2.png"
+                      alt="Protocol Illustration"
+                      width={185}
+                      height={185}
+                      className=' absolute mt-3.5  translate-y-[50px] animate-spin  duration-[3000ms] ease-in-out'
+                    />
               </div>
               <div className="flex-1">
                 <h2 className="text-3xl md:text-[50px] font-bold font-cleanow text-[#00D49B] mb-[30px] md:mb-[60px] text-shadow-[-3px_3px_#054642] relative">
@@ -249,36 +248,20 @@ export default function Home() {
         <section className="max-w-[1096px] mx-auto px-6">
           <div className='flex justify-between mb-[50px] md:mb-[100px]'>
             <h2 className="text-3xl md:text-5xl font-bold font-cleanow text-[#6CEA31] mb-12 text-center text-shadow-[-3px_3px_#054642]">OUR ROADMAP</h2>
-            <div className="hidden md:flex gap-12">
-              {/* <Image
-                src="/roadmap/arrow_left.svg"
-                alt="Arrow Left"
-                width={48}
-                height={48}
-                className='cursor-pointer'
-              />
-              <Image
-                src="/roadmap/arrow_right.svg"
-                alt="Arrow Right"
-                width={48}
-                height={48}
-                className='cursor-pointer'
-              /> */}
-            </div>
           </div>
           <div className="relative">
-            <div className="flex flex-col md:flex-row justify-between gap-24 md:gap-8">
+            <div className="flex flex-col md:flex-row justify-between gap-24 md:gap-8 ">
               {roadmapItems.map((item, index) => (
-                <div key={index} className="flex-1 bg-[#221846] rounded-3xl p-[10px]">
-                  <div className='border-[3px] border-[#B999FE] rounded-3xl py-[15px] md:py-[30px] pl-[40px] pr-[15px] relative'>
+                <div key={index} className=" flex-1 bg-[#221846] rounded-3xl p-[10px] ">
+                  <div className=' border-[3px] border-[#B999FE] rounded-3xl py-[15px] md:py-[30px] pl-[40px] pr-[15px] relative'>
                     <h3 className="text-sm font-semibold text-white absolute top-[-90px] left-5">{item.date}</h3>
-                    <div className='flex'>
+                    <div className='flex '>
                       <Image
                         src="/roadmap/roadmap.svg"
                         alt="Roadmap Illustration"
                         width={21}
                         height={111}
-                        className='mt-[-110px] mr-[10px]'
+                        className='mt-[-110px] mr-[10px] '
                       />
                       <h4 className="text-2xl font-cleanow mb-2 md:mb-4 text-white">{item.title}</h4>
                     </div>
@@ -443,7 +426,7 @@ export default function Home() {
             return (
               <div key={index}>
                 <div
-                  className="bg-[#1a1b2e]/50 rounded-full p-4 md:px-[50px] md:py-[27px] border-[3px] md:border-[6px] border-[#094B30]"
+                  className="bg-[#1a1b2e]/50 rounded-full p-4 md:px-[50px] md:py-[27px] border-[3px] md:border-[6px] border-[#094B30] hover:shadow-[0_0_30px_0_#094B30]"
                 >
                   <div
                     className="flex items-center justify-between cursor-pointer"

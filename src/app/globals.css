@@ -89,6 +89,13 @@ input[type=number] {
     opacity: 1;
   }
 }
+
+.connectWallet:hover {
+  box-shadow: 0px 0px 20px 0px #39FF14;
+}
+.social:hover {
+  box-shadow: 0px 0px 20px 0px #c69fe0;
+}
 .animate-blink {
   animation: blink 4s infinite;
 }
