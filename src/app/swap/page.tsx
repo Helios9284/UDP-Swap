@@ -41,30 +41,30 @@ export default function Swap() {
       case 'DEX':
         return (
           <div className="flex-1 p-2 md:p-8 relative">
-            <div className='absolute -right-10' >
-              <Image
-                src='/swap/portal.png'
-                alt='Ribbon'
-                width={450}
-                height={450}
-                className='tr rotate-45 hidden md:block'
-              />
+            <div>
               <Image
                 src='/swap/Bitcoin.png'
-                alt='Ribbon'
-                width={180}
-                height={180}
-                className=' absolute top-1.5  right-[360px] hidden md:block'
+                alt='Bitcoin'
+                width={120}
+                height={120}
+                className='absolute right-0 -translate-x-[350px] top-[180px] hidden xl:block z-1 '
+              />
+              <Image
+                src='/swap/portal.png'
+                alt='Portal'
+                width={350}
+                height={350}
+                className='absolute right-0 -translate-x-33 top-[200px] animate-spin  hidden xl:block'
               />
               <Image
                 src='/swap/Eth.png'
-                alt='Ribbon'
-                width={180}
-                height={180}
-                className='absolute -right-0.5  -translate-y-40 hidden md:block'
+                alt='Eth'
+                width={120}
+                height={120}
+                className='absolute right-0.5 -translate-x-[150px] top-[450px] rotate-12  hidden xl:block z-1'
               />
-              <div className='w-[120px] h-[120px] md:w-[260px] md:h-[260px] top-1/2 right-1/2 -translate-y-1/2 translate-x-1/2 scale-200 rounded-full blur-[100px]  bg-[#B8F736] opacity-80 absolute  -z-1'></div>
             </div>
+
             <Image
               src='/swap/dex-bg2.svg'
               alt='Ribbon'
@@ -140,7 +140,7 @@ export default function Swap() {
                     1 {selectedToken1.symbol} = {(Number(selectedToken2.balanceUSD) / Number(selectedToken1.balanceUSD)).toFixed(7)} {selectedToken2.symbol}
                   </div>
 
-                  <button className="w-full bg-[#39FF14] text-black py-4 rounded-xl font-semibold font-cleanow hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736] cursor-pointer">
+                  <button className="w-full bg-[#39FF14] text-black py-4 rounded-xl font-semibold font-cleanow hover:shadow-[0_0_20px_#39FF14] hover:bg-opacity-90 transition-all border-[4px] border-[#B8F736] cursor-pointer">
                     SWAP
                   </button>
                 </div>
@@ -404,8 +404,8 @@ export default function Swap() {
     setStars(generatedStars);
   }, []);
   return (
-    <div className="">
-      <div className='w-[360px] h-[360px] scale-200 rounded-full blur-[100px] md:blur-[180px] bg-[#BC01FE] opacity-40 absolute -top-20 left-0 -z-1'></div>
+    <div className="max-w-screen">
+      <div className='w-[360px] h-[360px] scale-200 rounded-full blur-[100px] md:blur-[180px] bg-[#BC01FE] opacity-40 absolute -top-20 left-0 -z-1' />
       <div className="flex flex-col md:flex-row  md:bg-[url('/swap/wave.svg')] bg-no-repeat bg-contain">
         {/* Mobile Tab Navigation */}
         <div className="md:hidden flex overflow-x-auto bg-[#1a1b2e] p-2">

@@ -3,6 +3,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ConnectionButton } from './ConnectionButton';
+import { SiTelegram } from "react-icons/si";
+import { RiTelegram2Fill } from 'react-icons/ri';
+import { LiaFacebookF } from "react-icons/lia";
+import { TiSocialTwitter } from "react-icons/ti";
 
 const Footer = () => {
   const navItems = [
@@ -48,45 +52,28 @@ const Footer = () => {
 
             <div className="flex flex-col md:flex-row items-center justify-center md:gap-6 pt-4 border-t border-gray-800">
               <span className="text-gray-400">Follow us</span>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-6">
                 <a
                   href="#"
-                  className="text-[#39FF14] hover:text-white transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Image
-                    src="/footer/facebook.svg"
-                    alt="Facebook"
-                    width={80}
-                    height={80}
-                    className="w-[56px] h-[56px] md:w-[80px] md:h-[80px] mt-[20px] md:mt-[30px]"
-                  />
-                </a>
-                <a
-                  href="#"
-                  className="text-[#39FF14] hover:text-white transition-colors"
+                  className="text-[#73C11B] hover:shadow-[0_0_20px_0_#7DC71B] hover:rounded-full transition-colors"
                   aria-label="Twitter"
                 >
-                  <Image
-                    src="/footer/x.svg"
-                    alt="Facebook"
-                    width={48}
-                    height={48}
-                    className="w-8 h-8 md:w-12 md:h-12"
-                  />
+                  <LiaFacebookF className='w-8 h-8 md:w-12 md:h-12 bg-[#1F2333] rounded-full p-2'/>
                 </a>
                 <a
                   href="#"
-                  className="text-[#39FF14] hover:text-white transition-colors"
+                  className="text-[#73C11B] hover:shadow-[0_0_20px_0_#7DC71B] hover:rounded-full transition-colors"
+                  aria-label="Facebook"
+                >
+                  <TiSocialTwitter className="w-8 h-8 md:w-12 md:h-12  bg-[#1F2333] rounded-full p-2"/>
+                </a>
+
+                <a
+                  href="#"
+                  className="text-[#73C11B] hover:shadow-[0_0_20px_0_#7DC71B] hover:rounded-full transition-colors"
                   aria-label="Telegram"
                 >
-                  <Image
-                    src="/footer/telegram.svg"
-                    alt="Facebook"
-                    width={48}
-                    height={48}
-                    className="w-8 h-8 md:w-12 md:h-12 ml-2 md:ml-4"
-                  />
+                  <RiTelegram2Fill className='w-8 h-8 md:w-12 md:h-12  bg-[#1F2333] rounded-full p-2'/>
                 </a>
               </div>
             </div>
